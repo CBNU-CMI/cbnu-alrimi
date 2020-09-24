@@ -1,0 +1,53 @@
+.notice-card {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, .1);
+    margin: 7px;
+    padding: 12px 10px;
+    font-size: 1rem;
+    border-radius: 5px;
+
+    .info {
+        display: flex;
+        margin-top: 6px;
+        font-size: 0.8rem;
+        color: gray;
+
+        .div-bar:after {
+            content: '|';
+            margin: 0px 3px;
+        }
+
+        .date {
+            margin-left: auto;
+        }
+    }
+}
+
+.notice-detail {
+    .title {
+        display: flex;
+        justify-content: center;
+        margin: 0px 20px;
+        font-weight: bold;
+        font-size: 1.2rem;
+
+    }
+
+    .date {
+        display: flex;
+        font-size: 0.8rem;
+        color: gray;
+        margin: 15px 0px;
+
+        div {
+            margin-left: auto;
+        }
+    }
+
+    .contents {
+
+        // padding: 0px 50px;
+        * {
+            text-indent: 0pt !important;
+        }
+    }
+}

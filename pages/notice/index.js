@@ -1,4 +1,4 @@
-import mainLayout from "../layout/main";
+import mainLayout from "../../layout/main";
 
 const Notice = () => <div>notice</div>;
 
