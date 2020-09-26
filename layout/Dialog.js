@@ -8,14 +8,18 @@ const DialogLayout = (Page) => {
 
     useImperativeHandle(ref, () => ({
       openDialog() {
+        if (!window.dialog) window.dialog = [];
+        window.dialog.push(ref);
         setOpen(true);
       },
       closeDialog() {
+        window.dialog.pop();
         setOpen(false);
       },
     }));
 
     function closeDialog() {
+      window.dialog.pop();
       setOpen(false);
     }
 
