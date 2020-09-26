@@ -28,23 +28,23 @@ const ConfigDialog = () => {
   }
 
   function moveTrace(index) {
-    const newTrace = trace.filter((option, i) => i <= index);
-    setTrace(newTrace);
-    setOptions(newTrace[newTrace.length - 1].children);
+    const updateTrace = trace.filter((option, i) => i <= index);
+    setTrace(updateTrace);
+    setOptions(updateTrace[updateTrace.length - 1].children);
   }
 
   return (
     <div className="notice-config">
       <div className="trace-list">
         {trace.map((option, i) => (
-          <div className="trace" onClick={() => moveTrace(i)}>
+          <div key={option.text} className="trace" onClick={() => moveTrace(i)}>
             {option.text}
           </div>
         ))}
       </div>
       <div className="select-box">
         {options.map((option) => (
-          <div className="option">
+          <div key={option.text} className="option">
             {option.bell ? (
               <div className="bell">
                 {option.allow ? (
