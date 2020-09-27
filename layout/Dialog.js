@@ -1,6 +1,7 @@
 import { useState, forwardRef, useImperativeHandle } from "react";
 import { CgClose } from "react-icons/cg";
 import "../styles/dialog.scss";
+import { CSSTransition } from "react-transition-group";
 
 const DialogLayout = (Page) => {
   return forwardRef((props, ref) => {
@@ -24,12 +25,14 @@ const DialogLayout = (Page) => {
     }
 
     return (
-      <div className={`dialog ${open ? "open" : "hide"}`}>
-        <div className="header">
-          <CgClose className="close" onClick={closeDialog} />
+      <CSSTransition in={open} timeout={200} classNames="alert" unmountOnExit>
+        <div className="dialog">
+          <div className="header">
+            <CgClose className="close" onClick={closeDialog} />
+          </div>
+          <Page />
         </div>
-        <Page />
-      </div>
+      </CSSTransition>
     );
   });
 };

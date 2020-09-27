@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/accessible-emoji */
+
 import mainLayout from "../layout/main";
 import NoticeList from "../components/NoticeList";
 
