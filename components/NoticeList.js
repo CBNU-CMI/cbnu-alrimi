@@ -1,6 +1,13 @@
+import { useRef } from "react";
 import NoticeCard from "./NoticeCard";
+import NoticeDetailDialog from "./Dialog/NoticeDetailDialog";
 
 const NoticeList = () => {
+  const noticeDetailDialogRef = useRef();
+  function openNoticeDetailDialog() {
+    noticeDetailDialogRef.current.openDialog();
+  }
+
   const notices = [
     {
       id: 1,
@@ -18,15 +25,21 @@ const NoticeList = () => {
     },
   ];
 
-  return notices.map((notice) => (
-    <NoticeCard
-      key={notice.id}
-      title={notice.title}
-      department={notice.department}
-      type={notice.type}
-      date={notice.date}
-    />
-  ));
+  return (
+    <>
+      {notices.map((notice) => (
+        <NoticeCard
+          key={notice.id}
+          title={notice.title}
+          department={notice.department}
+          type={notice.type}
+          date={notice.date}
+          onClick={openNoticeDetailDialog}
+        />
+      ))}
+      <NoticeDetailDialog ref={noticeDetailDialogRef} />
+    </>
+  );
 };
 
 export default NoticeList;

@@ -7,6 +7,7 @@
   font-size: 0.8rem;
   background: #fcfcfc;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 10px 20px 0 rgba(0, 0, 0, 0.19);
+  z-index: 1;
 
   .menu {
     width: 25%;
@@ -17,7 +18,7 @@
       color: rgb(138, 0, 0);
     }
 
-    & > div {
+    &>div {
       display: flex;
       flex-direction: column;
       align-items: center;
