@@ -11,14 +11,15 @@ const ConfigDialog = () => {
   const [trace, setTrace] = useState([list]);
   const [options, setOptions] = useState(trace[trace.length - 1].children);
   const noticeListDialogRef = useRef();
+
   function allow(option) {
-    option.bell = true;
-    setOptions(options);
+    option.allow = true;
+    setOptions(Object.assign([], options));
   }
 
   function disallow(option) {
-    option.bell = false;
-    setOptions(options);
+    option.allow = false;
+    setOptions(Object.assign([], options));
   }
 
   function select(option) {
@@ -56,9 +57,9 @@ const ConfigDialog = () => {
               {option.bell ? (
                 <div className="bell">
                   {option.allow ? (
-                    <BsBellFill onClick={disallow} />
+                    <BsBellFill onClick={() => disallow(option)} />
                   ) : (
-                    <BsBell onClick={allow} />
+                    <BsBell onClick={() => allow(option)} />
                   )}
                 </div>
               ) : (
