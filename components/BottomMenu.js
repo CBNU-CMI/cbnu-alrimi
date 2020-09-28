@@ -1,9 +1,9 @@
-import Link from "next/link"
-import "../styles/bottom-menu.scss"
-import { useRouter } from "next/router"
-import { AiOutlineNotification, AiOutlineCalendar } from "react-icons/ai"
-import { BiRestaurant } from "react-icons/bi"
-import { FiMoreHorizontal } from "react-icons/fi"
+import Link from 'next/link'
+import '../styles/bottom-menu.scss'
+import { useRouter } from 'next/router'
+import { AiOutlineNotification, AiOutlineCalendar } from 'react-icons/ai'
+import { BiRestaurant } from 'react-icons/bi'
+import { FiMoreHorizontal } from 'react-icons/fi'
 
 const BottomMenu = () => {
   const router = useRouter()
@@ -12,7 +12,7 @@ const BottomMenu = () => {
     <div className="bottom-menu">
       <div className="menu">
         <Link href="/notice">
-          <div className={router.pathname === "/notice" ? "active" : null}>
+          <div className={router.pathname === '/notice' ? 'active' : null}>
             <div className="icon">
               <AiOutlineNotification />
             </div>
@@ -23,7 +23,7 @@ const BottomMenu = () => {
 
       <div className="menu">
         <Link href="/schedule">
-          <div className={router.pathname === "/schedule" ? "active" : null}>
+          <div className={router.pathname === '/schedule' ? 'active' : null}>
             <div className="icon">
               <AiOutlineCalendar />
             </div>
@@ -33,7 +33,7 @@ const BottomMenu = () => {
       </div>
       <div className="menu">
         <Link href="/restaurant">
-          <div className={router.pathname === "/restaurant" ? "active" : null}>
+          <div className={router.pathname === '/restaurant' ? 'active' : null}>
             <div className="icon">
               <BiRestaurant />
             </div>
@@ -43,7 +43,7 @@ const BottomMenu = () => {
       </div>
       <div className="menu">
         <Link href="/more">
-          <div className={router.pathname === "/more" ? "active" : null}>
+          <div className={router.pathname === '/more' ? 'active' : null}>
             <div className="icon">
               <FiMoreHorizontal />
             </div>
