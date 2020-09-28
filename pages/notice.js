@@ -1,8 +1,8 @@
 import { useRef } from 'react'
 import { BsGearFill } from 'react-icons/bs'
-import { ConfigDialog } from '../../components/Dialog'
-import mainLayout from '../../layout/main'
-import NoticeList from '../../components/NoticeList'
+import { ConfigDialog } from '../components/Dialog'
+import mainLayout from '../layout/main'
+import { NoticeList } from '../components/Notice'
 
 const Index = () => {
   const configDialogRef = useRef()

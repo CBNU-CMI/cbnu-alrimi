@@ -1,4 +1,4 @@
-import '../styles/notice.scss'
+import '../../styles/Notice/notice.scss'
 
 const NoticeDetail = () => {
   const notice = {

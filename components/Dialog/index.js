@@ -1,3 +1,7 @@
-import ConfigDialog from './ConfigDialog'
+/* eslint import/no-cycle: [2, { maxDepth: 1 }] */
 
-export { ConfigDialog as default, ConfigDialog }
+import ConfigDialog from './ConfigDialog'
+import NoticeDetailDialog from './NoticeDetailDialog'
+import NoticeListDialog from './NoticeListDialog'
+
+export { ConfigDialog, NoticeDetailDialog, NoticeListDialog }

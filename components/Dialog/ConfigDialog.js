@@ -1,6 +1,8 @@
 /* eslint-disable no-param-reassign */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint import/no-cycle: [2, { maxDepth: 1 }] */
+
 import { useState, useRef } from 'react'
 import { BsBell, BsBellFill } from 'react-icons/bs'
 import list from './list'
