@@ -1,12 +1,12 @@
-import Link from "next/link";
-import "../styles/bottom-menu.scss";
-import { useRouter } from "next/router";
-import { AiOutlineNotification, AiOutlineCalendar } from "react-icons/ai";
-import { BiRestaurant } from "react-icons/bi";
-import { FiMoreHorizontal } from "react-icons/fi";
+import Link from "next/link"
+import "../styles/bottom-menu.scss"
+import { useRouter } from "next/router"
+import { AiOutlineNotification, AiOutlineCalendar } from "react-icons/ai"
+import { BiRestaurant } from "react-icons/bi"
+import { FiMoreHorizontal } from "react-icons/fi"
 
 const BottomMenu = () => {
-  const router = useRouter();
+  const router = useRouter()
 
   return (
     <div className="bottom-menu">
@@ -52,7 +52,7 @@ const BottomMenu = () => {
         </Link>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default BottomMenu;
+export default BottomMenu

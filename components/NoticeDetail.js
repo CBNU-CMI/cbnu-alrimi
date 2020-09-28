@@ -1,8 +1,8 @@
-import "../styles/notice.scss";
+import '../styles/notice.scss'
 
 const NoticeDetail = () => {
   const notice = {
-    title: "2020학년도 학사(일정) 변경 안내",
+    title: '2020학년도 학사(일정) 변경 안내',
     contents: `<div class="rd_body clear">
 		
 				
@@ -58,9 +58,9 @@ const NoticeDetail = () => {
 <p style="text-indent:-27.6pt;"><span lang="en-us" style="background:rgb(255,255,255);letter-spacing:0pt;font-family:'굴림체';font-size:11pt;">· </span><span style="background:rgb(255,255,255);font-family:'굴림체';font-size:11pt;">석</span><span lang="en-us" style="background:rgb(255,255,255);letter-spacing:0pt;font-family:'굴림체';font-size:11pt;">·</span><span style="background:rgb(255,255,255);font-family:'굴림체';font-size:11pt;">박사학위논문제출자격 종합시험</span><span lang="en-us" style="background:rgb(255,255,255);letter-spacing:0pt;font-family:'굴림체';font-size:11pt;">, </span><span style="background:rgb(255,255,255);font-family:'굴림체';font-size:11pt;">학위 청구논문 심사 및 완료보고서 제출시한</span><span lang="en-us" style="background:rgb(255,255,255);letter-spacing:0pt;font-family:'굴림체';font-size:11pt;">, </span><span style="background:rgb(255,255,255);font-family:'굴림체';font-size:11pt;">학위 최종논문제출연장</span></p></div><!--AfterDocument(17010,2065)--></article>
     
         </div>`,
-    date: "2020-08-20",
-    link: "",
-  };
+    date: '2020-08-20',
+    link: '',
+  }
 
   return (
     <div className="notice-detail">
@@ -75,7 +75,7 @@ const NoticeDetail = () => {
         dangerouslySetInnerHTML={{ __html: notice.contents }}
       />
     </div>
-  );
-};
+  )
+}
 
-export default NoticeDetail;
+export default NoticeDetail

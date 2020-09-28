@@ -1,5 +1,5 @@
-import mainLayout from "../layout/main";
+import mainLayout from '../layout/main'
 
-const More = () => <div>more</div>;
+const More = () => <div>more</div>
 
-export default mainLayout(More);
+export default mainLayout(More)
