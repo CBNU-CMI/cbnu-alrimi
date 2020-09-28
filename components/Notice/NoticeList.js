@@ -1,6 +1,7 @@
+/* eslint import/no-cycle: [2, { maxDepth: 1 }] */
 import { useRef } from 'react'
 import NoticeCard from './NoticeCard'
-import NoticeDetailDialog from './Dialog/NoticeDetailDialog'
+import { NoticeDetailDialog } from '../Dialog'
 
 const NoticeList = () => {
   const noticeDetailDialogRef = useRef()

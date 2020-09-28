@@ -5,7 +5,8 @@
   },
   "eslint.alwaysShowStatus": true,
   "prettier.disableLanguages": ["js"],
-  "prettier.endOfLine": "crlf",
+  "prettier.endOfLine": "LF",
+  "files.eol": "\n",
   "files.autoSave": "onFocusChange",
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true

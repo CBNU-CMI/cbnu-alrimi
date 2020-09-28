@@ -1,6 +1,6 @@
 import { useState, forwardRef, useImperativeHandle } from 'react'
 import { CgClose } from 'react-icons/cg'
-import '../styles/dialog.scss'
+import '../styles/Dialog/dialog.scss'
 import { CSSTransition } from 'react-transition-group'
 
 const DialogLayout = (Page) => {
