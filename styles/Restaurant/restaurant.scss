@@ -1,6 +1,8 @@
 .restaurant {
-  margin-left: 10px;
-  margin-right: 10px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  margin-left: 1rem;
+  margin-right: 1rem;
   display: flex;
   flex-direction: column;
 }
