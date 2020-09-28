@@ -1,0 +1,27 @@
+.restaurant-date {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  .AiOutline {
+    cursor: pointer;
+    border-radius: 0.7rem;
+    padding: 10px;
+    background-color: #f0f2f3;
+  }
+
+  .date {
+    margin: {
+      left: 15px;
+      right: 15px;
+    }
+    height: 16px;
+    border-radius: 0.7rem;
+    padding: {
+      top: 10px;
+      bottom: 10px;
+      left: 45px;
+      right: 45px;
+    }
+    background-color: #f0f2f3;
+  }
+}
