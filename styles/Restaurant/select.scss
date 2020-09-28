@@ -1,0 +1,23 @@
+.select {
+  display: flex;
+  overflow-x: auto;
+  overflow-y: hidden;
+  width: calc(100vw - 20px);
+  .select-box {
+    font-size: 15px;
+    cursor: pointer;
+    white-space: nowrap;
+    padding: {
+      top: 0.5rem;
+      bottom: 0.5rem;
+      left: 0.75rem;
+      right: 0.75rem;
+    }
+    margin: 10px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.7rem;
+    background-color: #f0f2f3;
+    box-shadow: 0 0.125rem 0.3125rem rgba(0, 0, 0, 0.12);
+  }
+}
