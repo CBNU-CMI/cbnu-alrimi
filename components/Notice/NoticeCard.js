@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
-import '../styles/notice.scss'
+import '../../styles/Notice/notice.scss'
 
 const NoticeCard = ({ title, department, type, date, onClick }) => {
   return (

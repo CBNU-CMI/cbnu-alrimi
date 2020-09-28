@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import '../styles/bottom-menu.scss'
+import '../../styles/Layout/bottom-menu.scss'
 import { useRouter } from 'next/router'
 import { AiOutlineNotification, AiOutlineCalendar } from 'react-icons/ai'
 import { BiRestaurant } from 'react-icons/bi'
@@ -11,8 +11,8 @@ const BottomMenu = () => {
   return (
     <div className="bottom-menu">
       <div className="menu">
-        <Link href="/notice">
-          <div className={router.pathname === '/notice' ? 'active' : null}>
+        <Link href="/">
+          <div className={router.pathname === '/' ? 'active' : null}>
             <div className="icon">
               <AiOutlineNotification />
             </div>

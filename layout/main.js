@@ -1,7 +1,7 @@
 import Head from 'next/head'
-import BottomMenu from '../components/BottomMenu'
-import '../styles/reset.scss'
-import '../styles/global.scss'
+import BottomMenu from '../components/Layout/BottomMenu'
+import '../styles/Layout/reset.scss'
+import '../styles/Layout/global.scss'
 
 const mainLayout = (Page) => {
   const style = {
