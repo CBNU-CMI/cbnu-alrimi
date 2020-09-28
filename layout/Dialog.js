@@ -1,27 +1,27 @@
-import { useState, forwardRef, useImperativeHandle } from "react";
-import { CgClose } from "react-icons/cg";
-import "../styles/dialog.scss";
-import { CSSTransition } from "react-transition-group";
+import { useState, forwardRef, useImperativeHandle } from 'react'
+import { CgClose } from 'react-icons/cg'
+import '../styles/dialog.scss'
+import { CSSTransition } from 'react-transition-group'
 
 const DialogLayout = (Page) => {
   return forwardRef((props, ref) => {
-    const [open, setOpen] = useState(false);
+    const [open, setOpen] = useState(false)
 
     useImperativeHandle(ref, () => ({
       openDialog() {
-        if (!window.dialog) window.dialog = [];
-        window.dialog.push(ref);
-        setOpen(true);
+        if (!window.dialog) window.dialog = []
+        window.dialog.push(ref)
+        setOpen(true)
       },
       closeDialog() {
-        window.dialog.pop();
-        setOpen(false);
+        window.dialog.pop()
+        setOpen(false)
       },
-    }));
+    }))
 
     function closeDialog() {
-      window.dialog.pop();
-      setOpen(false);
+      window.dialog.pop()
+      setOpen(false)
     }
 
     return (
@@ -33,8 +33,8 @@ const DialogLayout = (Page) => {
           <Page />
         </div>
       </CSSTransition>
-    );
-  });
-};
+    )
+  })
+}
 
-export default DialogLayout;
+export default DialogLayout

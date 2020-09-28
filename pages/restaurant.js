@@ -1,7 +1,7 @@
-import mainLayout from "../layout/main";
+import mainLayout from '../layout/main'
 
 const Restaurant = () => {
-  return <div>restaurant</div>;
-};
+  return <div>restaurant</div>
+}
 
-export default mainLayout(Restaurant);
+export default mainLayout(Restaurant)

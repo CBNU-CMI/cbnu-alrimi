@@ -1,3 +1,3 @@
-import ConfigDialog from "./ConfigDialog";
+import ConfigDialog from './ConfigDialog'
 
-export { ConfigDialog as default, ConfigDialog };
+export { ConfigDialog as default, ConfigDialog }

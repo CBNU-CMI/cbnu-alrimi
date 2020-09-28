@@ -1,12 +1,12 @@
-import Head from "next/head";
-import BottomMenu from "../components/BottomMenu";
-import "../styles/reset.scss";
-import "../styles/global.scss";
+import Head from 'next/head'
+import BottomMenu from '../components/BottomMenu'
+import '../styles/reset.scss'
+import '../styles/global.scss'
 
 const mainLayout = (Page) => {
   const style = {
-    background: "#fafafa",
-  };
+    background: '#fafafa',
+  }
 
   return () => (
     <div>
@@ -19,7 +19,7 @@ const mainLayout = (Page) => {
       <Page stlye={style} />
       <BottomMenu />
     </div>
-  );
-};
+  )
+}
 
-export default mainLayout;
+export default mainLayout

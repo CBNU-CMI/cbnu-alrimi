@@ -1,13 +1,13 @@
-import { useRef } from "react";
-import { BsGearFill } from "react-icons/bs";
-import { ConfigDialog } from "../../components/Dialog";
-import mainLayout from "../../layout/main";
-import NoticeList from "../../components/NoticeList";
+import { useRef } from 'react'
+import { BsGearFill } from 'react-icons/bs'
+import { ConfigDialog } from '../../components/Dialog'
+import mainLayout from '../../layout/main'
+import NoticeList from '../../components/NoticeList'
 
 const Index = () => {
-  const configDialogRef = useRef();
+  const configDialogRef = useRef()
   function openConfigDialog() {
-    configDialogRef.current.openDialog();
+    configDialogRef.current.openDialog()
   }
   return (
     <div className="notice-page">
@@ -17,7 +17,7 @@ const Index = () => {
       <NoticeList />
       <ConfigDialog ref={configDialogRef} />
     </div>
-  );
-};
+  )
+}
 
-export default mainLayout(Index);
+export default mainLayout(Index)
