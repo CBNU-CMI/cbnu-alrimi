@@ -4,7 +4,7 @@ import { createStore, compose, applyMiddleware } from 'redux'
 import { composeWithDevTools } from 'redux-devtools-extension'
 import reducer from '../reducers'
 
-const Test = ({ Component, store }) => {
+const Test = ({ Component }) => {
   return (
     <>
       <Component />
