@@ -14,7 +14,8 @@
     display: none; /* Chrome, Safari, Opera*/
   }
 
-  .select-box {
+  .select-box,
+  .real-select-box {
     min-width: 20%;
     text-align: center;
     font-size: 15px;
@@ -37,5 +38,8 @@
     &:last-child {
       padding-right: 1rem;
     }
+  }
+  .real-select-box {
+    color: #8a0000;
   }
 }
