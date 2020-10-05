@@ -19,7 +19,7 @@ const Menu = () => {
   useEffect(() => {
     axios
       .get(
-        `http://localhost:3000/restaurant?date=${date}&place=${restaurantList[place]}`
+        `http://192.168.0.39:3000/restaurant?date=${date}&place=${restaurantList[place]}`
       )
       .then((res) => {
         setMenuData(res.data)
@@ -27,14 +27,19 @@ const Menu = () => {
   }, [place, date])
 
   const timeList = ['아침', '점심', '저녁']
+
   return (
     <div className="restaurant-menu">
-      {menuData.map((d) => {
+      {menuData.map((menu) => {
+        const foodArray = menu.food_name.split('\n')
         return (
-          <div className="restaurant-time" key={d.food_name}>
-            {timeList[d.time - 1]}
+          <div className="restaurant-time" key={menu.food_name}>
+            {timeList[menu.time - 1]}
             <div className="restaurant-text">
-              <div className="content">{d.food_name}</div>
+              {foodArray.map((m) => {
+                if (m === '') return
+                return <div className="content">{m}</div>
+              })}
             </div>
           </div>
         )
