@@ -14,9 +14,9 @@ const Menu = () => {
   const timeList = ['아침', '점심', '저녁']
   return (
     <div className="restaurant-menu">
-      {menuData.map((d, index) => {
+      {menuData.map((d) => {
         return (
-          <div className="restaurant-time" key={index}>
+          <div className="restaurant-time" key={d.food_name}>
             {timeList[d.time - 1]}
             <div className="restaurant-text">
               <div className="content">{d.food_name}</div>

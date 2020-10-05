@@ -44,6 +44,7 @@ const Select = () => {
           </div>
         )
       })}
+      <div className="fake-select" />
     </div>
   )
 }
