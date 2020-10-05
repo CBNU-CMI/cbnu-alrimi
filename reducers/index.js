@@ -1,9 +1,11 @@
 import { combineReducers } from 'redux' // 여러 리듀서들을 하나로 합쳐준다.
 import restaurantDate from './restaurantDate'
+import restaurantMenu from './restaurantMenu'
 import restaurantPlace from './restaurantPlace'
 
 const rootReducer = combineReducers({
   restaurantDate,
+  restaurantMenu,
   restaurantPlace,
 })
 

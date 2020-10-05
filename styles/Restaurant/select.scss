@@ -35,11 +35,12 @@
     border-radius: 0.7rem;
     background-color: #f0f2f3;
     box-shadow: 0 0.125rem 0.3125rem rgba(0, 0, 0, 0.12);
-    &:last-child {
-      padding-right: 1rem;
-    }
   }
   .real-select-box {
     color: #8a0000;
+  }
+
+  .fake-select {
+    padding: 0.2rem;
   }
 }

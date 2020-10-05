@@ -4,6 +4,7 @@ import { AiOutlineLeft, AiOutlineRight } from 'react-icons/ai'
 import React, { useCallback } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { datePlusAction, dateMinusAction } from '../../reducers/restaurantDate'
+import { dayList } from './constants'
 
 const Day = () => {
   const dispatch = useDispatch()
@@ -16,8 +17,6 @@ const Day = () => {
   const onClickMinus = useCallback(() => {
     dispatch(dateMinusAction())
   }, [])
-
-  const dayList = ['일', '월', '화', '수', '목', '금', '토']
 
   return (
     <div className="restaurant-date">
