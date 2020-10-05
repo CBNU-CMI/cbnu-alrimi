@@ -4,6 +4,7 @@ import '../../styles/Restaurant/select.scss'
 
 import React, { useCallback } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import restaurantList from './constants'
 import { placeChangeAction } from '../../reducers/restaurantPlace'
 
 const Select = () => {
@@ -13,15 +14,6 @@ const Select = () => {
   const onClickPlace = useCallback((index) => {
     dispatch(placeChangeAction(index))
   }, [])
-
-  const restaurantList = [
-    '본관',
-    '양성재',
-    '양진재',
-    '한빛식당',
-    '별빛식당',
-    '은하수식당',
-  ]
 
   return (
     <div className="restaurant-select">

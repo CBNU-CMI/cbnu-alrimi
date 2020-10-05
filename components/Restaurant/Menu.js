@@ -1,15 +1,24 @@
 import React, { useState, useEffect } from 'react'
-import '../../styles/Restaurant/menu.scss'
+import { useSelector } from 'react-redux'
 import axios from 'axios'
+import restaurantList from './constants'
+import '../../styles/Restaurant/menu.scss'
 
 const Menu = () => {
   const [menuData, setMenuData] = useState([])
+  const place = useSelector((state) => {
+    return state.restaurantPlace
+  })
 
   useEffect(() => {
-    axios.get('http://localhost:3000/restaurant?day=%EC%9B%94').then((res) => {
-      setMenuData(res.data)
-    })
-  }, [])
+    axios
+      .get(
+        `http://localhost:3000/restaurant?day=%EC%9B%94&place=${restaurantList[place]}`
+      )
+      .then((res) => {
+        setMenuData(res.data)
+      })
+  }, [place])
 
   const timeList = ['아침', '점심', '저녁']
   return (
