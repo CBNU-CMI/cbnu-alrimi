@@ -1,58 +1,22 @@
+import React, { useState, useEffect } from 'react'
 import '../../styles/Restaurant/menu.scss'
+import axios from 'axios'
 
 const Menu = () => {
-  const testData = [
-    {
-      restaurant_name: '본관',
-      food_name: `잡곡밥(쌀:국내산)
-      사골떡국
-      (우사골:호주산) 치킨너겟*머스타드
-      (계육:국내산)
-      오이지무침
-      김치 (배추/고춧가루:중국산)
-      우유 또는두유
-      736kcal/28g
-      `,
-      date: '2020-09-27',
-      day: '일',
-      time: 1,
-    },
-    {
-      restaurant_name: '본관',
-      food_name: `잡곡밥 (쌀:국내산)
-      시래기국
-      제육고추장불고기
-      (돈육:국내산)
-      숙주맛살무침
-      깍두기
-      821kcal/29g
-      `,
-      date: '2020-09-27',
-      day: '일',
-      time: 2,
-    },
-    {
-      restaurant_name: '본관',
-      food_name: `잡곡밥(쌀:국내산)
-      만두계란국
-      오징어야채볶음*소면사리
-      (오징어:페루산)
-      콩나물무침
-      김치 (배추/고춧가루:중국산)
-      석류차
-      857kcal/28g
-      `,
-      date: '2020-09-27',
-      day: '일',
-      time: 3,
-    },
-  ]
+  const [menuData, setMenuData] = useState([])
+
+  useEffect(() => {
+    axios.get('http://localhost:3000/restaurant?day=%EC%9B%94').then((res) => {
+      setMenuData(res.data)
+    })
+  }, [])
+
   const timeList = ['아침', '점심', '저녁']
   return (
     <div className="restaurant-menu">
-      {testData.map((d) => {
+      {menuData.map((d, index) => {
         return (
-          <div className="restaurant-time">
+          <div className="restaurant-time" key={index}>
             {timeList[d.time - 1]}
             <div className="restaurant-text">
               <div className="content">{d.food_name}</div>
