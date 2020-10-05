@@ -38,6 +38,7 @@ const Menu = () => {
             <div className="restaurant-text">
               {foodArray.map((m) => {
                 if (m === '') return
+                // eslint-disable-next-line consistent-return
                 return <div className="content">{m}</div>
               })}
             </div>
