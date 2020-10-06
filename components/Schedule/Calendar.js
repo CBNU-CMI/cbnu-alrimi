@@ -1,5 +1,5 @@
 import '../../styles/Schedule/calendar.scss'
-import testMonth from './testMonth.json'
+import getWeeks from './getWeeks'
 
 const Week = ({ week }) => {
   return (
@@ -15,10 +15,11 @@ const Day = ({ date }) => {
   return <div className="date">{new Date(date).getDate()}</div>
 }
 
-const Calendar = () => {
+const Calendar = ({ date }) => {
+  const Weeks = getWeeks(date.getFullYear(), date.getMonth() + 1)
   return (
     <div className="calendar">
-      {testMonth.weeks.map((week) => {
+      {Weeks.map((week) => {
         return <Week week={week} key={week} />
       })}
     </div>
