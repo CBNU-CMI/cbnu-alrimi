@@ -1,13 +1,12 @@
 import '../../styles/Schedule/date.scss'
 import React, { useCallback } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io'
 import { monthPlusAction, monthMinusAction } from '../../reducers/scheduleMonth'
 import { dayList } from '../constants'
 
-const Date = () => {
+const Date = ({ date }) => {
   const dispatch = useDispatch()
-  const date = useSelector((state) => state.scheduleMonth)
   const onClickPlus = useCallback(() => {
     dispatch(monthPlusAction())
   }, [])
