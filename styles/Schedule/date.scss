@@ -1,0 +1,31 @@
+.schedule-date {
+  .date {
+    font-weight: bold;
+    font-size: 1.3rem;
+    margin-top: 10px;
+    margin-bottom: 1.5rem;
+    display: flex;
+    justify-content: center;
+    .IoIosArrowBack {
+      cursor: pointer;
+      padding-right: 1rem;
+    }
+    .IoIosArrowForward {
+      cursor: pointer;
+      padding-left: 1rem;
+    }
+  }
+
+  .day {
+    color: gray;
+    font-size: 0.9rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-bottom: 0.5rem;
+  }
+
+  .line {
+    border: 1px solid lightgray;
+  }
+}

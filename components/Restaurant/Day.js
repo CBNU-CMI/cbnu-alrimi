@@ -4,7 +4,7 @@ import { AiOutlineLeft, AiOutlineRight } from 'react-icons/ai'
 import React, { useCallback } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { datePlusAction, dateMinusAction } from '../../reducers/restaurantDate'
-import { dayList } from './constants'
+import { dayList } from '../constants'
 
 const Day = () => {
   const dispatch = useDispatch()

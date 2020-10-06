@@ -4,7 +4,7 @@ import '../../styles/Restaurant/select.scss'
 
 import React, { useCallback } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import restaurantList from './constants'
+import restaurantList from '../constants'
 import { placeChangeAction } from '../../reducers/restaurantPlace'
 
 const Select = () => {

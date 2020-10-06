@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import axios from 'axios'
-import restaurantList from './constants'
+import restaurantList from '../constants'
 import '../../styles/Restaurant/menu.scss'
 
 const Menu = () => {
