@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 import '../../styles/Notice/notice.scss'
+import dateForamt from '../../common/dateForamt'
 
 const NoticeCard = ({ title, department, type, date, onClick }) => {
   return (
@@ -10,7 +11,7 @@ const NoticeCard = ({ title, department, type, date, onClick }) => {
         <div className="department">{department}</div>
         <div className="div-bar" />
         <div className="type">{type}</div>
-        <div className="date">{date}</div>
+        <div className="date">{dateForamt(date)}</div>
       </div>
     </div>
   )
