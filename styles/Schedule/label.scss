@@ -1,0 +1,18 @@
+.label {
+  font-size: 0.9rem;
+  border-left: 5px solid #8a0000;
+  background-color: white;
+  padding: 0.8rem;
+  box-shadow: 0 0.125rem 0.3125rem rgba(0, 0, 0, 0.12);
+  margin-bottom: 0.8rem;
+
+  .content {
+    color: black;
+    font-weight: bold;
+    padding-bottom: 0.8rem;
+  }
+  .term {
+    font-weight: normal;
+    color: gray;
+  }
+}
