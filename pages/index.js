@@ -2,7 +2,7 @@ import { useRef } from 'react'
 import { BsGearFill } from 'react-icons/bs'
 import { ConfigDialog } from '../components/Dialog'
 import mainLayout from '../layout/main'
-import { NoticeList } from '../components/Notice'
+import { NoticeList, NoticeSelector } from '../components/Notice'
 
 const Index = () => {
   const configDialogRef = useRef()
@@ -14,6 +14,7 @@ const Index = () => {
       <div className="config">
         <BsGearFill onClick={openConfigDialog} />
       </div>
+      <NoticeSelector />
       <NoticeList />
       <ConfigDialog ref={configDialogRef} />
     </div>

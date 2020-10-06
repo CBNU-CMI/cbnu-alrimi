@@ -62,3 +62,19 @@
     }
   }
 }
+
+
+.notice-selector {
+  display: flex;
+  font-size: 1.6rem;
+
+  div {
+    margin-left: 0.7rem;
+    cursor: pointer;
+    color: rgb(204, 204, 204);
+  }
+
+  .selected {
+    color: rgb(146, 18, 18)
+  }
+}
