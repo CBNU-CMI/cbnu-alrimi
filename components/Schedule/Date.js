@@ -36,6 +36,8 @@ const Date = () => {
           )
         })}
       </div>
+
+      <div className="line" />
     </div>
   )
 }
