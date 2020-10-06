@@ -1,5 +1,7 @@
 import Head from 'next/head'
 import BottomMenu from '../components/Layout/BottomMenu'
+import FakeFooter from '../components/Layout/FakeFooter'
+
 import '../styles/Layout/reset.scss'
 import '../styles/Layout/global.scss'
 
@@ -17,6 +19,7 @@ const mainLayout = (Page) => {
         <script src="/flutter.js" />
       </Head>
       <Page stlye={style} />
+      <FakeFooter />
       <BottomMenu />
     </div>
   )
