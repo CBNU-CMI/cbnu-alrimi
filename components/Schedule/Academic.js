@@ -6,10 +6,6 @@ const Academic = () => {
     <div className="academic">
       <div className="title">학사일정</div>
       <Label />
-      <Label />
-      <Label />
-      <Label />
-      <Label />
     </div>
   )
 }

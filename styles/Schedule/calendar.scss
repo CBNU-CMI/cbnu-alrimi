@@ -1,0 +1,12 @@
+.calendar {
+  .week {
+    display: flex;
+    .date {
+      width: 14.2857%;
+      text-align: center;
+      font-size: 0.9rem;
+      color: gray;
+      margin-bottom: 0.7rem;
+    }
+  }
+}
