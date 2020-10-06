@@ -3,6 +3,7 @@ import React, { useCallback } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io'
 import { monthPlusAction, monthMinusAction } from '../../reducers/scheduleMonth'
+import { dayList } from '../constants'
 
 const Date = () => {
   const dispatch = useDispatch()
@@ -17,11 +18,24 @@ const Date = () => {
 
   return (
     <div className="schedule-date">
-      <IoIosArrowBack className="IoIosArrow" onClick={onClickMinus} />
       <div className="date">
+        <IoIosArrowBack className="IoIosArrowBack" onClick={onClickMinus} />
         {date.getFullYear()}년 {date.getMonth() + 1}월
+        <IoIosArrowForward
+          className="IoIosArrowForward"
+          onClick={onClickPlus}
+        />
       </div>
-      <IoIosArrowForward className="IoIosArrow" onClick={onClickPlus} />
+
+      <div className="day">
+        {dayList.map((day) => {
+          return (
+            <span key={day} className="day">
+              {day}
+            </span>
+          )
+        })}
+      </div>
     </div>
   )
 }

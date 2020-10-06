@@ -1,24 +1,21 @@
 .schedule-date {
-  margin-top: 10px;
-  display: flex;
-  justify-content: space-between;
-  .IoIosArrow {
-    cursor: pointer;
-    padding: 10px;
+  .date {
+    font-weight: bold;
+    font-size: 1.3rem;
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    .IoIosArrowBack {
+      cursor: pointer;
+      padding-right: 1rem;
+    }
+    .IoIosArrowForward {
+      cursor: pointer;
+      padding-left: 1rem;
+    }
   }
 
-  .date {
-    margin: {
-      left: 15px;
-      right: 15px;
-    }
-    height: 16px;
-    border-radius: 0.7rem;
-    padding: {
-      top: 10px;
-      bottom: 10px;
-      left: 45px;
-      right: 45px;
-    }
+  .day {
+    color: gray;
   }
 }

@@ -1,7 +1,7 @@
 import '../../styles/Schedule/calendar.scss'
 
 const Calendar = () => {
-  return <h1>학식/긱식 메뉴</h1>
+  return <div className="calendar" />
 }
 
 export default Calendar
