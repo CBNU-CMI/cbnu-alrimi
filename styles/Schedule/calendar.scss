@@ -1,12 +1,37 @@
 .calendar {
   .week {
     display: flex;
-    .date {
+    .date,
+    .sunday-date,
+    .satday-date,
+    .not-date {
+      z-index: 2;
+      position: relative;
       width: 14.2857%;
       text-align: center;
       font-size: 0.9rem;
-      color: gray;
+      color: black;
       margin-bottom: 0.7rem;
+    }
+    .sunday-date {
+      color: red;
+    }
+    .satday-date {
+      color: blue;
+    }
+    .today {
+      z-index: -1;
+      position: absolute;
+      top: -0.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: lightgray;
+      width: 30px;
+      height: 30px;
+      border-radius: 15px;
+    }
+    .not-date {
+      color: gray;
     }
   }
 }
