@@ -11,7 +11,7 @@ const Schedule = () => {
     <div className="schedule">
       <Date className="date" date={date} />
       <Calendar className="calendar" date={date} />
-      <Academic className="academic" />
+      <Academic className="academic" date={date} />
     </div>
   )
 }
