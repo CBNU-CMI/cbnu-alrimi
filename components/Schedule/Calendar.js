@@ -13,7 +13,10 @@ const Week = ({ week }) => {
 
 // eslint-disable-next-line consistent-return
 const Day = ({ date }) => {
-  if (new Date().getDate() === date.getDate()) {
+  date.setHours(0, 0, 0, 0)
+  const now = new Date()
+  now.setHours(0, 0, 0, 0)
+  if (now.getTime() === date.getTime()) {
     return (
       <div className="date">
         {new Date(date).getDate()}

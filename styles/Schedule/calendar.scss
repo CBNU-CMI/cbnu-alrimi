@@ -22,7 +22,8 @@
       z-index: -1;
       position: absolute;
       top: -0.5rem;
-      right: 1.4rem;
+      left: 50%;
+      transform: translateX(-50%);
       background-color: lightgray;
       width: 30px;
       height: 30px;
