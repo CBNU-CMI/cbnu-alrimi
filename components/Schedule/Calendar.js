@@ -13,24 +13,24 @@ const Week = ({ week }) => {
 
 // eslint-disable-next-line consistent-return
 const Day = ({ date }) => {
-  date.setHours(0, 0, 0, 0)
   const now = new Date()
   now.setHours(0, 0, 0, 0)
-  if (now.getTime() === date.getTime()) {
-    return (
-      <div className="date">
-        {new Date(date).getDate()}
-        <div className="today" />
-      </div>
-    )
-  }
-  if (date.getDay() === 6) {
-    return <div className="satday-date">{new Date(date).getDate()}</div>
-  }
-  if (date.getDay() === 0) {
-    return <div className="sunday-date">{new Date(date).getDate()}</div>
-  }
-  return <div className="date">{new Date(date).getDate()}</div>
+  date.setHours(0, 0, 0, 0)
+  const dayclass = [
+    'sunday-date',
+    'date',
+    'date',
+    'date',
+    'date',
+    'date',
+    'satday-date',
+  ]
+  return (
+    <div className={dayclass[date.getDay()]}>
+      {new Date(date).getDate()}
+      {now.getTime() === date.getTime() ? <div className="today" /> : ''}
+    </div>
+  )
 }
 
 const Calendar = ({ date }) => {
