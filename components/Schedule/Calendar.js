@@ -11,7 +11,22 @@ const Week = ({ week }) => {
   )
 }
 
+// eslint-disable-next-line consistent-return
 const Day = ({ date }) => {
+  if (new Date().getDate() === date.getDate()) {
+    return (
+      <div className="date">
+        {new Date(date).getDate()}
+        <div className="today" />
+      </div>
+    )
+  }
+  if (date.getDay() === 6) {
+    return <div className="satday-date">{new Date(date).getDate()}</div>
+  }
+  if (date.getDay() === 0) {
+    return <div className="sunday-date">{new Date(date).getDate()}</div>
+  }
   return <div className="date">{new Date(date).getDate()}</div>
 }
 
