@@ -3,7 +3,8 @@
     display: flex;
     .date,
     .sunday-date,
-    .satday-date {
+    .satday-date,
+    .not-date {
       z-index: 2;
       position: relative;
       width: 14.2857%;
@@ -28,6 +29,9 @@
       width: 30px;
       height: 30px;
       border-radius: 15px;
+    }
+    .not-date {
+      color: gray;
     }
   }
 }
