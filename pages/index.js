@@ -18,26 +18,7 @@ const Index = () => {
     setNoticeOffset(1)
   }, [selected])
 
-  console.log(noticeOffset)
-
   const infiniteScroll = () => {
-    const scrollHeight = Math.max(
-      document.documentElement.scrollHeight,
-      document.body.scrollHeight
-    )
-    // const scrollHeight = document.querySelector('html').=
-    const scrollTop = Math.max(
-      document.documentElement.scrollTop,
-      document.body.scrollTop
-    )
-    const { clientHeight } = document.documentElement
-
-    // alert(scrollHeight)
-
-    // if (scrollTop + clientHeight === scrollHeight) {
-    //   setNoticeOffset(noticeOffset + 1)
-    // }
-
     if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
       setNoticeOffset(noticeOffset + 1)
     }
