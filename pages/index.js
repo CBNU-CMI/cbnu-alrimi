@@ -8,24 +8,62 @@ import { NoticeList, NoticeSelector } from '../components/Notice'
 
 const Index = () => {
   const [notices, setNotices] = useState([])
-
+  const [noticeOffset, setNoticeOffset] = useState(1)
   const selected = useSelector((state) => {
     return state.noticeSelect
   })
 
+  useEffect(() => {
+    setNotices([])
+    setNoticeOffset(1)
+  }, [selected])
+
+  console.log(noticeOffset)
+
+  const infiniteScroll = () => {
+    const scrollHeight = Math.max(
+      document.documentElement.scrollHeight,
+      document.body.scrollHeight
+    )
+    // const scrollHeight = document.querySelector('html').=
+    const scrollTop = Math.max(
+      document.documentElement.scrollTop,
+      document.body.scrollTop
+    )
+    const { clientHeight } = document.documentElement
+
+    // alert(scrollHeight)
+
+    // if (scrollTop + clientHeight === scrollHeight) {
+    //   setNoticeOffset(noticeOffset + 1)
+    // }
+
+    if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
+      setNoticeOffset(noticeOffset + 1)
+    }
+  }
+
   const token = `fyhhpHxmc4I:APA91bEXCyw_TUvx3M-yKxyaKc72Xv0a7c2MVFbrDtTZfkqpZKIajyTi1Us0TAFHliQtq02Fy3Y_xTyBnmC8k1ea3qCLBQVh1aNFYs-ei2ZxMwvS4oFtnzPugaA2N9DQx2R63INnU9Pv`
   const types = { 전공: 'major', 공통: 'common' }
   useEffect(() => {
+    window.addEventListener('scroll', infiniteScroll, { passive: true })
     axios
-      .get(`http://192.168.0.22:3000/notice/site/list/${types[selected]}`, {
-        headers: {
-          token,
-        },
-      })
+      .get(
+        `http://${window.location.hostname}:3000/notice/site/list/${types[selected]}?offset=${noticeOffset}`,
+        {
+          headers: {
+            token,
+          },
+        }
+      )
       .then((res) => {
-        setNotices(res.data)
+        // console.log(res.data)
+        setNotices(notices.concat(res.data))
       })
-  }, [selected])
+    return () => {
+      window.removeEventListener('scroll', infiniteScroll)
+    }
+  }, [selected, noticeOffset])
 
   const configDialogRef = useRef()
   function openConfigDialog() {
