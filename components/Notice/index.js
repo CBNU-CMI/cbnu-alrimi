@@ -2,6 +2,13 @@
 import NoticeCard from './NoticeCard'
 import NoticeDetail from './NoticeDetail'
 import NoticeList from './NoticeList'
+import NoticeListBySiteId from './NoticeListBySiteId'
 import Selector from './Selector'
 
-export { NoticeCard, NoticeDetail, NoticeList, Selector as NoticeSelector }
+export {
+  NoticeCard,
+  NoticeDetail,
+  NoticeList,
+  Selector as NoticeSelector,
+  NoticeListBySiteId,
+}

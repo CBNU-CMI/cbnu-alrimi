@@ -27,7 +27,6 @@ const ConfigDialog = () => {
 
   function select(option) {
     if (option.bell) {
-      console.log(option)
       setSelectedSiteId(option.id)
       noticeListDialogRef.current.openDialog()
       return
@@ -75,7 +74,7 @@ const ConfigDialog = () => {
           ))}
         </div>
       </div>
-      <NoticeListDialog ref={noticeListDialogRef} site_id={10101} />
+      <NoticeListDialog ref={noticeListDialogRef} siteId={selectedSiteId} />
     </>
   )
 }
