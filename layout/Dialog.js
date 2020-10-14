@@ -12,16 +12,23 @@ const DialogLayout = (Page) => {
       openDialog() {
         if (!window.dialog) window.dialog = []
         window.dialog.push(ref)
+        document.querySelector('html').style.overflow = 'hidden'
         setOpen(true)
       },
       closeDialog() {
         window.dialog.pop()
+        if (window.dialog.length === 0) {
+          document.querySelector('html').style.overflow = 'auto'
+        }
         setOpen(false)
       },
     }))
 
     function closeDialog() {
       window.dialog.pop()
+      if (window.dialog.length === 0) {
+        document.querySelector('html').style.overflow = 'auto'
+      }
       setOpen(false)
     }
 

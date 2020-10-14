@@ -7,13 +7,47 @@ import axios from 'axios'
 import NoticeList from './NoticeList'
 
 const NoticeListById = ({ siteId }) => {
+  const [dialog, setDialog] = useState()
   const [notices, setNotices] = useState([])
+  const [noticeOffset, setNoticeOffset] = useState(1)
+
+  const infiniteScroll = () => {
+    const { scrollHeight, scrollTop, clientHeight } = dialog
+
+    if (scrollTop + clientHeight >= scrollHeight) {
+      // console.log(noticeOffset)
+      setNoticeOffset(noticeOffset + 1)
+    }
+  }
 
   useEffect(() => {
-    axios.get(`http://192.168.0.22:3000/notice/site/${siteId}`).then((res) => {
-      setNotices(res.data)
-    })
+    const currentDialog = document.querySelectorAll('.dialog')[
+      document.querySelectorAll('.dialog').length - 1
+    ]
+    setDialog(currentDialog)
+    setNotices([])
+    setNoticeOffset(4)
   }, [siteId])
+
+  useEffect(() => {
+    if (dialog)
+      dialog.addEventListener('scroll', infiniteScroll, { passive: true })
+
+    return () => {
+      if (dialog) dialog.removeEventListener('scroll', infiniteScroll)
+    }
+  }, [dialog])
+
+  useEffect(() => {
+    console.log(noticeOffset)
+    axios
+      .get(
+        `http://192.168.0.22:3000/notice/site/${siteId}?offset=${noticeOffset}`
+      )
+      .then((res) => {
+        setNotices(notices.concat(res.data))
+      })
+  }, [siteId, noticeOffset])
 
   return <NoticeList notices={notices} />
 }
