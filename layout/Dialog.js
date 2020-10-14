@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import { useState, forwardRef, useImperativeHandle } from 'react'
 import { CgClose } from 'react-icons/cg'
 import '../styles/Dialog/dialog.scss'
@@ -30,7 +31,7 @@ const DialogLayout = (Page) => {
           <div className="header">
             <CgClose className="close" onClick={closeDialog} />
           </div>
-          <Page />
+          <Page {...props} />
         </div>
       </CSSTransition>
     )

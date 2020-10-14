@@ -3,13 +3,14 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint import/no-cycle: [2, { maxDepth: 1 }] */
 
-import { NoticeList } from '../Notice'
+import { NoticeListBySiteId } from '../Notice'
 import DialogLayout from '../../layout/Dialog'
 
-const NoticeListDialog = () => {
+const NoticeListDialog = ({ siteId }) => {
+  // console.log(props)
   return (
     <div className="notice-list-dialog">
-      <NoticeList />
+      <NoticeListBySiteId siteId={siteId} />
     </div>
   )
 }
