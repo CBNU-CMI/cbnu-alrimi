@@ -6,10 +6,11 @@
 import { NoticeList } from '../Notice'
 import DialogLayout from '../../layout/Dialog'
 
-const NoticeListDialog = () => {
+const NoticeListDialog = ({ site_id }) => {
+  console.log(site_id)
   return (
     <div className="notice-list-dialog">
-      <NoticeList />
+      <NoticeList site_id={site_id} />
     </div>
   )
 }

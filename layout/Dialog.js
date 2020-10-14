@@ -30,7 +30,7 @@ const DialogLayout = (Page) => {
           <div className="header">
             <CgClose className="close" onClick={closeDialog} />
           </div>
-          <Page />
+          <Page site_id={10101} />
         </div>
       </CSSTransition>
     )

@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 import '../../styles/Notice/notice.scss'
-import dateForamt from '../../common/dateForamt'
+import dateForamt from '../../common/dateFormat'
 
 const NoticeCard = ({ title, department, type, date, onClick }) => {
   return (

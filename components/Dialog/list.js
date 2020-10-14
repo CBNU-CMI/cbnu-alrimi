@@ -35,6 +35,7 @@ data.forEach((element) => {
     let cur = list.children[1]
     cur = find(cur, element.category2)
     cur = find(cur, element.category3)
+    cur.id = element.id
     cur.bell = true
   } else {
     // 전공
@@ -42,6 +43,7 @@ data.forEach((element) => {
     cur = find(cur, element.category1)
     cur = find(cur, element.category2)
     cur = find(cur, element.category3)
+    cur.id = element.id
     cur.bell = true
     cur.allow = false
   }
