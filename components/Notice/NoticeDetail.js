@@ -56,7 +56,49 @@ const NoticeDetail = () => {
 <p style="text-indent:-27.6pt;">&nbsp;</p>
 
 <p style="text-indent:-27.6pt;"><span lang="en-us" style="background:rgb(255,255,255);letter-spacing:0pt;font-family:'굴림체';font-size:11pt;">· </span><span style="background:rgb(255,255,255);font-family:'굴림체';font-size:11pt;">석</span><span lang="en-us" style="background:rgb(255,255,255);letter-spacing:0pt;font-family:'굴림체';font-size:11pt;">·</span><span style="background:rgb(255,255,255);font-family:'굴림체';font-size:11pt;">박사학위논문제출자격 종합시험</span><span lang="en-us" style="background:rgb(255,255,255);letter-spacing:0pt;font-family:'굴림체';font-size:11pt;">, </span><span style="background:rgb(255,255,255);font-family:'굴림체';font-size:11pt;">학위 청구논문 심사 및 완료보고서 제출시한</span><span lang="en-us" style="background:rgb(255,255,255);letter-spacing:0pt;font-family:'굴림체';font-size:11pt;">, </span><span style="background:rgb(255,255,255);font-family:'굴림체';font-size:11pt;">학위 최종논문제출연장</span></p></div><!--AfterDocument(17010,2065)--></article>
-    
+    <div>a</div>
+    <div>a</div>
+    <div>a</div>
+    <div>a</div>
+    <div>a</div>
+    <div>a</div>
+    <div>a</div>
+    <div>a</div>
+    <div>a</div>
+    <div>a</div>
+    <div>a</div>
+    <div>a</div>
+    <div>a</div>
+    <div>a</div>
+    <div>a</div>
+    <div>a</div>
+    <div>a</div>
+    <div>a</div>
+    <div>a</div>
+    <div>a</div>
+    <div>a</div>
+    <div>a</div>
+    <div>a</div>
+    <div>a</div>
+    <div>a</div>
+    <div>a</div>
+    <div>a</div>
+    <div>a</div>
+    <div>a</div>
+    <div>a</div>
+    <div>a</div>
+    <div>a</div>
+    <div>a</div>
+    <div>a</div>
+    <div>a</div>
+    <div>a</div>
+    <div>a</div>
+    <div>a</div>
+    <div>a</div>
+    <div>a</div>
+    <div>a</div>
+    <div>a</div>
+    <div>a</div>
         </div>`,
     date: '2020-08-20',
     link: '',

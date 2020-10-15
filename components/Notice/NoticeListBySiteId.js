@@ -7,16 +7,18 @@ import axios from 'axios'
 import NoticeList from './NoticeList'
 
 const NoticeListById = ({ siteId }) => {
-  const [dialog, setDialog] = useState()
+  // const [dialog, setDialog] = useState()
   const [notices, setNotices] = useState([])
   const [noticeOffset, setNoticeOffset] = useState(1)
+  let [hitBottom, sethitBottom] = useState(false)
 
-  const infiniteScroll = () => {
+  const infiniteScroll = (event) => {
+    const dialog = event.target
+
     const { scrollHeight, scrollTop, clientHeight } = dialog
 
-    if (scrollTop + clientHeight >= scrollHeight) {
-      // console.log(noticeOffset)
-      setNoticeOffset(noticeOffset + 1)
+    if (scrollTop + clientHeight + 60 >= scrollHeight) {
+      sethitBottom(true)
     }
   }
 
@@ -24,30 +26,30 @@ const NoticeListById = ({ siteId }) => {
     const currentDialog = document.querySelectorAll('.dialog')[
       document.querySelectorAll('.dialog').length - 1
     ]
-    setDialog(currentDialog)
+    currentDialog.addEventListener('scroll', infiniteScroll)
+    infiniteScroll({ target: currentDialog })
+
     setNotices([])
-    setNoticeOffset(4)
-  }, [siteId])
-
-  useEffect(() => {
-    if (dialog)
-      dialog.addEventListener('scroll', infiniteScroll, { passive: true })
-
+    setNoticeOffset(1)
     return () => {
-      if (dialog) dialog.removeEventListener('scroll', infiniteScroll)
+      currentDialog.removeEventListener('scroll', infiniteScroll)
     }
-  }, [dialog])
+  }, [])
 
   useEffect(() => {
-    console.log(noticeOffset)
     axios
       .get(
-        `http://192.168.0.22:3000/notice/site/${siteId}?offset=${noticeOffset}`
+        `http://${window.location.hostname}:3000/notice/site/${siteId}?offset=${noticeOffset}`
       )
       .then((res) => {
+        // noticeOffset++
+        hitBottom = false
+        sethitBottom(hitBottom)
+
+        setNoticeOffset(noticeOffset + 1)
         setNotices(notices.concat(res.data))
       })
-  }, [siteId, noticeOffset])
+  }, [hitBottom])
 
   return <NoticeList notices={notices} />
 }
