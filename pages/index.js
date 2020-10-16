@@ -19,7 +19,10 @@ const Index = () => {
   }, [selected])
 
   const infiniteScroll = () => {
-    if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
+    if (
+      window.innerHeight + window.scrollY + 40 >=
+      document.body.offsetHeight
+    ) {
       setNoticeOffset(noticeOffset + 1)
     }
   }
