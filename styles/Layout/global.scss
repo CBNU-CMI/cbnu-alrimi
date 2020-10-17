@@ -30,6 +30,7 @@
 
 * {
   font-family: 'NanumBarunGothic', sans-serif !important;
+  line-height: normal;
 }
 
 html {
@@ -48,4 +49,8 @@ button,
 select,
 a {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.shadow{
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 10px 20px 0 rgba(0, 0, 0, 0.19);
 }

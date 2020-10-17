@@ -9,9 +9,9 @@ const Academic = ({ date }) => {
   useEffect(() => {
     axios
       .get(
-        `http://192.168.0.39:3000/schedule?year=${date.getFullYear()}&month=${
-          date.getMonth() + 1
-        }`
+        `http://${
+          window.location.hostname
+        }:3000/schedule?year=${date.getFullYear()}&month=${date.getMonth() + 1}`
       )
       .then((res) => {
         setTimeLineData(res.data)

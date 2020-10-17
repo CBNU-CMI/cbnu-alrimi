@@ -19,7 +19,7 @@ const Menu = () => {
   useEffect(() => {
     axios
       .get(
-        `http://192.168.0.39:3000/restaurant?date=${date}&place=${restaurantList[place]}`
+        `http://${window.location.hostname}:3000/restaurant?date=${date}&place=${restaurantList[place]}`
       )
       .then((res) => {
         setMenuData(res.data)

@@ -1,11 +1,13 @@
 /* eslint import/no-cycle: [2, { maxDepth: 1 }] */
-import { useRef } from 'react'
+import { useRef, useState } from 'react'
 import NoticeCard from './NoticeCard'
 import { NoticeDetailDialog } from '../Dialog'
 
 const NoticeList = ({ notices }) => {
+  const [selectedNotice, setSelectedNotice] = useState({})
   const noticeDetailDialogRef = useRef()
-  function openNoticeDetailDialog() {
+  function openNoticeDetailDialog(notice) {
+    setSelectedNotice(notice)
     noticeDetailDialogRef.current.openDialog()
   }
 
@@ -35,10 +37,14 @@ const NoticeList = ({ notices }) => {
           department={notice.category2}
           type={notice.category3}
           date={notice.date}
-          onClick={openNoticeDetailDialog}
+          onClick={() => openNoticeDetailDialog(notice)}
         />
       ))}
-      <NoticeDetailDialog ref={noticeDetailDialogRef} />
+      <NoticeDetailDialog
+        ref={noticeDetailDialogRef}
+        noticeId={selectedNotice.id}
+        notice={selectedNotice}
+      />
     </>
   )
 }
