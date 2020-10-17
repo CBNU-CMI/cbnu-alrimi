@@ -4,7 +4,7 @@ import { CgClose } from 'react-icons/cg'
 import '../styles/Dialog/dialog.scss'
 import { CSSTransition } from 'react-transition-group'
 
-const DialogLayout = (Page) => {
+const DialogLayout = (Page, Header) => {
   return forwardRef((props, ref) => {
     const [open, setOpen] = useState(false)
 
@@ -37,8 +37,11 @@ const DialogLayout = (Page) => {
         <div className="dialog">
           <div className="header">
             <CgClose className="close" onClick={closeDialog} />
+            {Header ? <Header {...props} /> : null}
           </div>
-          <Page {...props} />
+          <div className="content">
+            <Page {...props} />
+          </div>
         </div>
       </CSSTransition>
     )

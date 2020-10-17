@@ -3,15 +3,32 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint import/no-cycle: [2, { maxDepth: 1 }] */
 
+import { BiStar, BiWorld } from 'react-icons/bi'
 import { NoticeDetail } from '../Notice'
 import DialogLayout from '../../layout/Dialog'
 
-const NoticeDetailDialog = () => {
+const Header = ({ notice }) => {
+  const openLink = () => {
+    window.open(notice.url)
+  }
+
+  return (
+    <>
+      {notice.category2} | {notice.category3}
+      <div className="menu">
+        <BiStar />
+        <BiWorld onClick={openLink} />
+      </div>
+    </>
+  )
+}
+
+const NoticeDetailDialog = ({ noticeId }) => {
   return (
     <div className="notice-detail-dialog">
-      <NoticeDetail />
+      <NoticeDetail noticeId={noticeId} />
     </div>
   )
 }
 
-export default DialogLayout(NoticeDetailDialog)
+export default DialogLayout(NoticeDetailDialog, Header)

@@ -7,19 +7,47 @@
     z-index: 2;
     background: white;
     overflow-y: auto;
+    .content{
+        margin-top:10px;
+    }
+    
+    .header {
+        height: 56px;
+        padding-left:20px;
+        position: -webkit-sticky;
+        position: sticky;
+        top: 0px;
+        background:white;
+        box-shadow: 1px 0 4px 1px rgba(0,0,0,.1);
+        display: flex;
+        align-items: center;
+        .title{
+            font-size: 1rem;
+        }
+        .close {
+            cursor: pointer;
+            font-size: 1.5rem;
+
+            margin-right: 0.5rem;
+        }
+        .menu{
+            display:flex;
+            align-items: center;
+            font-size: 1.4rem;
+            position: absolute;
+            right:0px;
+            // top:20px;
+            svg{
+                margin-right: 5px;
+            }
+        }
+
+    }
+
 }
 
 .hide {
     display: none;
-}
-
-.header {
-    padding: 8px;
-}
-
-.close {
-    font-size: 1.7rem;
-    cursor: pointer;
 }
 
 .notice-config {
