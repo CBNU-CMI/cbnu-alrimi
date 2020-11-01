@@ -6,6 +6,10 @@
 import { NoticeListBySiteId } from '../Notice'
 import DialogLayout from '../../layout/Dialog'
 
+const Header = ({ site }) => {
+  return <>{site.text}</>
+}
+
 const NoticeListDialog = ({ siteId }) => {
   // console.log(props)
   return (
@@ -15,4 +19,4 @@ const NoticeListDialog = ({ siteId }) => {
   )
 }
 
-export default DialogLayout(NoticeListDialog)
+export default DialogLayout({ Page: NoticeListDialog, Header })

@@ -31,4 +31,8 @@ const NoticeDetailDialog = ({ noticeId }) => {
   )
 }
 
-export default DialogLayout(NoticeDetailDialog, Header)
+export default DialogLayout({
+  Page: NoticeDetailDialog,
+  Header,
+  HeaderClass: 'header back',
+})
