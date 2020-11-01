@@ -12,7 +12,7 @@ import NoticeListDialog from './NoticeListDialog'
 const ConfigDialog = () => {
   const [trace, setTrace] = useState([list])
   const [options, setOptions] = useState(trace[trace.length - 1].children)
-  const [selectedSiteId, setSelectedSiteId] = useState()
+  const [selectedSite, setSelectedSite] = useState({ id: undefined })
   const noticeListDialogRef = useRef()
 
   function allow(option) {
@@ -27,7 +27,7 @@ const ConfigDialog = () => {
 
   function select(option) {
     if (option.bell) {
-      setSelectedSiteId(option.id)
+      setSelectedSite(option)
       noticeListDialogRef.current.openDialog()
       return
     }
@@ -74,9 +74,13 @@ const ConfigDialog = () => {
           ))}
         </div>
       </div>
-      <NoticeListDialog ref={noticeListDialogRef} siteId={selectedSiteId} />
+      <NoticeListDialog
+        ref={noticeListDialogRef}
+        siteId={selectedSite.id}
+        site={selectedSite}
+      />
     </>
   )
 }
 
-export default DialogLayout(ConfigDialog)
+export default DialogLayout({ Page: ConfigDialog })

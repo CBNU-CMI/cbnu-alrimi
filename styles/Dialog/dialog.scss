@@ -18,9 +18,11 @@
         position: sticky;
         top: 0px;
         background:white;
-        box-shadow: 1px 0 4px 1px rgba(0,0,0,.1);
         display: flex;
         align-items: center;
+        &.back{
+            box-shadow: 1px 0 4px 1px rgba(0,0,0,.1);
+        }
         .title{
             font-size: 1rem;
         }
