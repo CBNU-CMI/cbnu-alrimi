@@ -1,55 +1,51 @@
-import React, { useState, useEffect } from 'react'
-import { useSelector } from 'react-redux'
-import axios from 'axios'
-import restaurantList from '../constants'
-import '../../styles/Restaurant/menu.scss'
+import React, { useState, useEffect } from 'react';
+import { useSelector } from 'react-redux';
+import { getRestaurant } from '../../api';
+import restaurantList from '../constants';
+import '../../styles/Restaurant/menu.scss';
 
 const Menu = () => {
   function dateParsing(date) {
-    return `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`
+    return `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`;
   }
-  const [menuData, setMenuData] = useState([])
+  const [menuData, setMenuData] = useState([]);
   const place = useSelector((state) => {
-    return state.restaurantPlace
-  })
+    return state.restaurantPlace;
+  });
   const date = useSelector((state) => {
-    return dateParsing(state.restaurantDate)
-  })
+    return dateParsing(state.restaurantDate);
+  });
 
   useEffect(() => {
-    axios
-      .get(
-        `http://${window.location.hostname}:3000/restaurant?date=${date}&place=${restaurantList[place]}`
-      )
-      .then((res) => {
-        setMenuData(res.data)
-      })
-  }, [place, date])
+    getRestaurant({ date: date, place: restaurantList[place] }).then((res) => {
+      setMenuData(res.data);
+    });
+  }, [place, date]);
 
-  const timeList = ['아침', '점심', '저녁']
+  const timeList = ['아침', '점심', '저녁'];
 
   return (
     <div className="restaurant-menu">
       {menuData.map((menu) => {
-        const foodArray = menu.food_name.split('\n')
+        const foodArray = menu.food_name.split('\n');
         return (
           <div className="restaurant-time" key={menu.food_name}>
             {timeList[menu.time - 1]}
             <div className="restaurant-text">
               {foodArray.map((m) => {
-                if (m === '') return
+                if (m === '') return;
                 // eslint-disable-next-line consistent-return
                 return (
                   <div className="content" key={m}>
                     {m}
                   </div>
-                )
+                );
               })}
             </div>
           </div>
-        )
+        );
       })}
     </div>
-  )
-}
-export default Menu
+  );
+};
+export default Menu;

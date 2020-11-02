@@ -1,22 +1,18 @@
-import '../../styles/Schedule/academic.scss'
-import axios from 'axios'
-import React, { useState, useEffect } from 'react'
-import Label from './Label'
+import '../../styles/Schedule/academic.scss';
+import { getSchedule } from '../../api';
+import React, { useState, useEffect } from 'react';
+import Label from './Label';
 
 const Academic = ({ date }) => {
-  const [timeLineData, setTimeLineData] = useState([])
+  const [timeLineData, setTimeLineData] = useState([]);
 
   useEffect(() => {
-    axios
-      .get(
-        `http://${
-          window.location.hostname
-        }:3000/schedule?year=${date.getFullYear()}&month=${date.getMonth() + 1}`
-      )
-      .then((res) => {
-        setTimeLineData(res.data)
-      })
-  }, [date])
+    getSchedule({ year: date.getFullYear(), month: date.getMonth() + 1 }).then(
+      (res) => {
+        setTimeLineData(res.data);
+      },
+    );
+  }, [date]);
 
   return (
     <div className="academic">
@@ -29,10 +25,10 @@ const Academic = ({ date }) => {
             endDate={data.end_date}
             content={data.content}
           />
-        )
+        );
       })}
     </div>
-  )
-}
+  );
+};
 
-export default Academic
+export default Academic;

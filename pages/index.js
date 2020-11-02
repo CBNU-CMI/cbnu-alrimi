@@ -1,57 +1,50 @@
-import { useState, useRef, useEffect } from 'react'
-import { useSelector } from 'react-redux'
-import { BsGearFill } from 'react-icons/bs'
-import axios from 'axios'
-import { ConfigDialog } from '../components/Dialog'
-import mainLayout from '../layout/main'
-import { NoticeList, NoticeSelector } from '../components/Notice'
+import { useState, useRef, useEffect } from 'react';
+import { useSelector } from 'react-redux';
+import { BsGearFill } from 'react-icons/bs';
+import { ConfigDialog } from '../components/Dialog';
+import mainLayout from '../layout/main';
+import { NoticeList, NoticeSelector } from '../components/Notice';
+import { getNoticeSiteList } from '../api';
 
 const Index = () => {
-  const [notices, setNotices] = useState([])
-  const [noticeOffset, setNoticeOffset] = useState(1)
+  const [notices, setNotices] = useState([]);
+  const [noticeOffset, setNoticeOffset] = useState(1);
   const selected = useSelector((state) => {
-    return state.noticeSelect
-  })
+    return state.noticeSelect;
+  });
 
   useEffect(() => {
-    setNotices([])
-    setNoticeOffset(1)
-  }, [selected])
+    setNotices([]);
+    setNoticeOffset(1);
+  }, [selected]);
 
   const infiniteScroll = () => {
     if (
       window.innerHeight + window.scrollY + 40 >=
       document.body.offsetHeight
     ) {
-      setNoticeOffset(noticeOffset + 1)
+      setNoticeOffset(noticeOffset + 1);
     }
-  }
+  };
 
-  const token = `fyhhpHxmc4I:APA91bEXCyw_TUvx3M-yKxyaKc72Xv0a7c2MVFbrDtTZfkqpZKIajyTi1Us0TAFHliQtq02Fy3Y_xTyBnmC8k1ea3qCLBQVh1aNFYs-ei2ZxMwvS4oFtnzPugaA2N9DQx2R63INnU9Pv`
-  const types = { 전공: 'major', 공통: 'common' }
+  const types = { 전공: 'major', 공통: 'common' };
   useEffect(() => {
-    window.addEventListener('scroll', infiniteScroll, { passive: true })
-    axios
-      .get(
-        `http://${window.location.hostname}:3000/notice/site/list/${types[selected]}?offset=${noticeOffset}`,
-        {
-          headers: {
-            token,
-          },
-        }
-      )
-      .then((res) => {
-        // console.log(res.data)
-        setNotices(notices.concat(res.data))
-      })
-    return () => {
-      window.removeEventListener('scroll', infiniteScroll)
-    }
-  }, [selected, noticeOffset])
+    window.addEventListener('scroll', infiniteScroll, { passive: true });
 
-  const configDialogRef = useRef()
+    getNoticeSiteList({ type: types[selected], offset: noticeOffset }).then(
+      (res) => {
+        setNotices(notices.concat(res.data));
+      },
+    );
+
+    return () => {
+      window.removeEventListener('scroll', infiniteScroll);
+    };
+  }, [selected, noticeOffset]);
+
+  const configDialogRef = useRef();
   function openConfigDialog() {
-    configDialogRef.current.openDialog()
+    configDialogRef.current.openDialog();
   }
   return (
     <div className="notice-page">
@@ -62,7 +55,7 @@ const Index = () => {
       <NoticeList notices={notices} />
       <ConfigDialog ref={configDialogRef} />
     </div>
-  )
-}
+  );
+};
 
-export default mainLayout(Index)
+export default mainLayout(Index);
