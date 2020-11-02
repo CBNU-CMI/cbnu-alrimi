@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import { getRestaurant } from '../../api';
 import restaurantList from '../constants';
 import '../../styles/Restaurant/menu.scss';
+import NonMenu from './Non-Menu';
 
 const Menu = () => {
   function dateParsing(date) {
@@ -26,25 +27,30 @@ const Menu = () => {
 
   return (
     <div className="restaurant-menu">
-      {menuData.map((menu) => {
-        const foodArray = menu.food_name.split('\n');
-        return (
-          <div className="restaurant-time" key={menu.food_name}>
-            {timeList[menu.time - 1]}
-            <div className="restaurant-text">
-              {foodArray.map((m) => {
-                if (m === '') return;
-                // eslint-disable-next-line consistent-return
-                return (
-                  <div className="content" key={m}>
-                    {m}
-                  </div>
-                );
-              })}
+      {menuData.length > 0 ? (
+        menuData.map((menu) => {
+          const foodArray = menu.food_name.split('\n');
+
+          return (
+            <div className="restaurant-time" key={menu.food_name}>
+              {timeList[menu.time - 1]}
+              <div className="restaurant-text">
+                {foodArray.map((m) => {
+                  if (m === '') return;
+                  // eslint-disable-next-line consistent-return
+                  return (
+                    <div className="content" key={m}>
+                      {m}
+                    </div>
+                  );
+                })}
+              </div>
             </div>
-          </div>
-        );
-      })}
+          );
+        })
+      ) : (
+        <NonMenu />
+      )}
     </div>
   );
 };
