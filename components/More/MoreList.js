@@ -12,7 +12,12 @@ const MoreList = (props) => {
   return (
     <div className={listDataEng[props.idx]}>
       {props.name}
-      <AiOutlineRight />
+      <AiOutlineRight
+        style={{
+          color: 'lightgray',
+          float: 'right',
+        }}
+      />
     </div>
   );
 };

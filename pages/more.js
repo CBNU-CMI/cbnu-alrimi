@@ -1,6 +1,6 @@
 import mainLayout from '../layout/main';
-import '../styles/More/more.scss';
 import MoreList from '../components/More/MoreList';
+import '../styles/More/more.scss';
 
 const More = () => {
   const listData = [
