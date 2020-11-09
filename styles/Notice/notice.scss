@@ -1,28 +1,25 @@
 .notice-page {
   // padding: 20px 10px;
 
-  .config {
-    position: absolute;
-    right: 10px;
-    cursor: pointer;
-    font-size: 1.4rem;
+  .selector-height {
+    height: 40px;
   }
 }
 
 .notice-card {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
   margin: 7px;
-  padding: 13px 8px;
+  padding: 13px 12px;
 
   border-radius: 5px;
-  border:1px solid #e9e9e9;
+  border: 1px solid #e9e9e9;
 
   cursor: pointer;
 
-  .title{
+  .title {
     font-size: 0.9rem;
     white-space: nowrap;
-    overflow: hidden; 
+    overflow: hidden;
     text-overflow: ellipsis;
   }
 
@@ -64,7 +61,6 @@
   }
 
   .contents {
-
     padding: 0px 20px;
     * {
       // text-indent: 10pt !important;
@@ -74,15 +70,54 @@
 
 .notice-selector {
   display: flex;
-  font-size: 1.4rem;
+  // font-size: 1.4rem;
+  font-size: 0.8rem;
+  color: rgb(167, 167, 167);
+  overflow-x: auto;
+  overflow-y: hidden;
+  width: calc(100vw - 10px);
+  position: fixed;
+  background-color: white;
+  top: 0px;
+  &::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera*/
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+
+  padding: 4px 0px;
 
   div {
-    margin-left: 0.7rem;
+    margin-left: 0.4rem;
     cursor: pointer;
-    color: rgb(204, 204, 204);
+    // min-width: 20%;
+    text-align: center;
+    white-space: nowrap;
+    padding: 10px 7px;
+    margin: {
+      right: 6px;
+      top: 10px;
+      bottom: 10px;
+    }
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.7rem;
+    background-color: #f0f2f3;
+    box-shadow: 0 0.125rem 0.3125rem rgba(0, 0, 0, 0.12);
   }
 
   .selected {
-    color: rgb(146, 18, 18)
+    color: rgb(146, 18, 18);
+  }
+  .config {
+    padding: 10px 20px;
+    background: linear-gradient(#8ad467, #4ee24e);
+    color: white;
+    border-radius: 50px !important;
+    font-size: 0.8rem;
+  }
+  &.border {
+    box-shadow: 1px 0 4px 1px rgba(0, 0, 0, 0.1);
+    // border-bottom: 1.2px solid rgb(224, 224, 224);
   }
 }
