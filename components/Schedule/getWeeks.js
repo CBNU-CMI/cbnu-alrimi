@@ -9,7 +9,7 @@ function getWeeks(year, month) {
   let aftMonthFirstDate = new Date(year, month, 1)
 
   // 전달 마지막주
-  while (bfrMonthLastDate.getDay()) {
+  while (bfrMonthLastDate.getDay() !== 6) {
     allWeeks.push(
       new Date(
         bfrMonthLastDate.getFullYear(),
@@ -23,13 +23,6 @@ function getWeeks(year, month) {
       bfrMonthLastDate.getDate() - 1
     )
   }
-  allWeeks.push(
-    new Date(
-      bfrMonthLastDate.getFullYear(),
-      bfrMonthLastDate.getMonth(),
-      bfrMonthLastDate.getDate()
-    )
-  )
   allWeeks.reverse()
 
   // 이번달 주
