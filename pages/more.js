@@ -7,11 +7,14 @@ const More = () => {
     '나의 알림',
     '만든이',
     '도움주신분',
-    '연락처',
+    'Contact',
+    'Review',
     '오픈소스',
-    '비전',
+    '버전',
   ];
-  let list = listData.map((value, idx) => <MoreList name={value} idx={idx} key={idx} />);
+  let list = listData.map((value, idx) => (
+    <MoreList name={value} idx={idx} key={idx} />
+  ));
 
   return <div className="more">{list}</div>;
 };
