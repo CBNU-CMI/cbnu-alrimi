@@ -3,7 +3,6 @@ import { AiOutlineRight } from 'react-icons/ai';
 import Modal from './Modal';
 
 const MoreList = (props) => {
-  console.log(props);
   const [modal, setModal] = useState({ isModalOpen: false });
   const type = props.idx === 1 || props.idx === 2 ? true : false;
   const listDataEng = [
@@ -14,6 +13,11 @@ const MoreList = (props) => {
     'review',
     'opensource',
     'version',
+  ];
+
+  const modalData = [
+    { idx: 1, data: [['소프트웨어학과 조정제'], ['경영정보학과 노기진']] },
+    { idx: 2, data: [['윤리교육과 천하임(우왕이 디자이너)']] },
   ];
 
   function openModal() {
@@ -36,7 +40,11 @@ const MoreList = (props) => {
         />
       </div>
       {modal.isModalOpen && type ? (
-        <Modal type={props.idx} isOpen={modal.isModalOpen} close={closeModal} />
+        <Modal
+          datas={modalData.filter((data) => data.idx === props.idx)}
+          isOpen={modal.isModalOpen}
+          close={closeModal}
+        />
       ) : (
         ''
       )}

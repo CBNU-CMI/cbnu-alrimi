@@ -1,12 +1,8 @@
 import React from 'react';
 import '../../styles/More/modal.scss';
 
-const Modal = ({ type, isOpen, close }) => {
-  const modalData = [
-    '',
-    [['소프트웨어학과 조정제'], ['경영정보학과 노기진']],
-    [['윤리교육과 천하임(우왕이 디자이너)']],
-  ];
+const Modal = ({ datas, isOpen, close }) => {
+  const modalData = datas[0]['data'];
   return (
     <React.Fragment>
       {isOpen ? (
@@ -14,7 +10,7 @@ const Modal = ({ type, isOpen, close }) => {
           <div className="Modal-overlay" onClick={close} />
           <div className="Modal">
             <div className="content">
-              {modalData[type].map((data, index) => {
+              {modalData.map((data, index) => {
                 {
                   return <p key={index}>{data}</p>;
                 }
