@@ -1,7 +1,11 @@
 .more {
   padding-top: 1.5rem;
   & > div {
-    border: 1px solid #f0f2f3;
+    border-top: 1px solid #f0f2f3;
+
     padding: 1rem;
+  }
+  & > div:last-child {
+    border-bottom: 1px solid #f0f2f3;
   }
 }
