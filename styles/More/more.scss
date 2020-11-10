@@ -1,6 +1,6 @@
 .more {
   padding-top: 1.5rem;
-  div {
+  & > div {
     border: 1px solid #f0f2f3;
     padding: 1rem;
   }
