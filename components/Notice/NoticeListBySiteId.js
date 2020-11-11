@@ -13,28 +13,49 @@ const NoticeListById = ({ siteId }) => {
   let [hitBottom, sethitBottom] = useState(false);
 
   const infiniteScroll = (event) => {
-    const dialog = event.target;
+    const target = event.target;
+    if (target == window.document) {
+      if (
+        window.innerHeight + window.scrollY + 100 >=
+        document.body.offsetHeight
+      ) {
+        sethitBottom(true);
+      }
+    } else {
+      const { scrollHeight, scrollTop, clientHeight } = target;
 
-    const { scrollHeight, scrollTop, clientHeight } = dialog;
-
-    if (scrollTop + clientHeight + 60 >= scrollHeight) {
-      sethitBottom(true);
+      if (scrollTop + clientHeight + 100 >= scrollHeight) {
+        sethitBottom(true);
+      }
     }
   };
 
   useEffect(() => {
-    const currentDialog = document.querySelectorAll('.dialog')[
-      document.querySelectorAll('.dialog').length - 1
-    ];
-    currentDialog.addEventListener('scroll', infiniteScroll);
-    infiniteScroll({ target: currentDialog });
+    var target = window.document;
+    if (document.querySelectorAll('.dialog').length) {
+      target = document.querySelectorAll('.dialog')[
+        document.querySelectorAll('.dialog').length - 1
+      ];
+      target.addEventListener('scroll', infiniteScroll);
+    } else {
+      window.addEventListener('scroll', infiniteScroll);
+    }
+
+    infiniteScroll({ target });
 
     setNotices([]);
     setNoticeOffset(1);
     return () => {
-      currentDialog.removeEventListener('scroll', infiniteScroll);
+      if (target == window.document) return;
+      target.removeEventListener('scroll', infiniteScroll);
     };
   }, []);
+
+  useEffect(() => {
+    setNotices([]);
+    setNoticeOffset(1);
+    sethitBottom(true);
+  }, [siteId]);
 
   useEffect(() => {
     getNoticeSite({ siteId, offset: noticeOffset }).then((res) => {

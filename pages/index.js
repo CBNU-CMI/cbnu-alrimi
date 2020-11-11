@@ -3,7 +3,11 @@ import { useSelector } from 'react-redux';
 import { BsGearFill } from 'react-icons/bs';
 import { ConfigDialog } from '../components/Dialog';
 import mainLayout from '../layout/main';
-import { NoticeList, NoticeSelector } from '../components/Notice';
+import {
+  NoticeList,
+  NoticeSelector,
+  NoticeListBySiteId,
+} from '../components/Notice';
 import { getNoticeSiteList } from '../api';
 
 const Index = () => {
@@ -13,34 +17,12 @@ const Index = () => {
     return state.noticeSelect;
   });
 
-  useEffect(() => {
-    setNotices([]);
-    setNoticeOffset(1);
-  }, [selected]);
+  // useEffect(() => {
+  //   setNotices([]);
+  //   setNoticeOffset(1);
+  // }, [selected]);
 
-  const infiniteScroll = () => {
-    if (
-      window.innerHeight + window.scrollY + 40 >=
-      document.body.offsetHeight
-    ) {
-      setNoticeOffset(noticeOffset + 1);
-    }
-  };
-
-  const types = { 전공: 'major', 공통: 'common' };
-  useEffect(() => {
-    window.addEventListener('scroll', infiniteScroll, { passive: true });
-
-    getNoticeSiteList({ type: types[selected], offset: noticeOffset }).then(
-      (res) => {
-        setNotices(notices.concat(res.data));
-      },
-    );
-
-    return () => {
-      window.removeEventListener('scroll', infiniteScroll);
-    };
-  }, [selected, noticeOffset]);
+  console.log(selected);
 
   const configDialogRef = useRef();
   function openConfigDialog() {
@@ -52,7 +34,8 @@ const Index = () => {
         <BsGearFill onClick={openConfigDialog} />
       </div>
       <NoticeSelector />
-      <NoticeList notices={notices} />
+      <div className="selector-height"></div>
+      <NoticeListBySiteId siteId={selected} />
       <ConfigDialog ref={configDialogRef} />
     </div>
   );
