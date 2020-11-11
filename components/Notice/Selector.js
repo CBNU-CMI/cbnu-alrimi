@@ -5,11 +5,13 @@ import { useDispatch, useSelector } from 'react-redux';
 import { selectTypeAction } from '../../reducers/noticeSelect';
 import { ConfigDialog } from '../Dialog';
 import { AiOutlinePlus } from 'react-icons/ai';
+import { getSiteListCategory } from '../../api';
 
 const Selector = () => {
   const dispatch = useDispatch();
   const selected = useSelector((state) => state.noticeSelect);
   const [scrolling, setScrolling] = useState(false);
+  const [data, setData] = useState([]);
 
   const onClickSelect = useCallback((select) => {
     dispatch(selectTypeAction(select));
@@ -29,26 +31,11 @@ const Selector = () => {
 
   useEffect(() => {
     window.addEventListener('scroll', scroll);
-  });
-
-  const data = [
-    {
-      id: 130101,
-      name: '소프트웨어학과',
-    },
-    {
-      id: 130201,
-      name: '전기공학부',
-    },
-    {
-      id: 130301,
-      name: '전자공학부',
-    },
-    {
-      id: 130401,
-      name: '정보통신공학부',
-    },
-  ];
+    getSiteListCategory().then((result) => {
+      console.log(result);
+      setData(result.data);
+    });
+  }, []);
 
   return (
     <>

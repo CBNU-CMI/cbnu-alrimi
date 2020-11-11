@@ -25,7 +25,7 @@ const getNotice = (params) => {
 };
 
 const getNoticeSite = ({ siteId, offset }) => {
-  return axios.get(`/notice/site/${siteId}?offset=${offset}`, getConfig());
+  return axios.get(`/notice/category/${siteId}?offset=${offset}`, getConfig());
 };
 
 const getRestaurant = ({ date, place }) => {
@@ -36,4 +36,15 @@ const getSchedule = ({ year, month }) => {
   return axios.get(`/schedule?year=${year}&month=${month}`, getConfig());
 };
 
-export { getNoticeSiteList, getNotice, getNoticeSite, getRestaurant,getSchedule };
+const getSiteListCategory = () => {
+  return axios.get(`/notice/site/list/category`, getConfig());
+};
+
+export {
+  getNoticeSiteList,
+  getNotice,
+  getNoticeSite,
+  getRestaurant,
+  getSchedule,
+  getSiteListCategory,
+};
