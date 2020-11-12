@@ -22,7 +22,6 @@ const Index = () => {
   //   setNoticeOffset(1);
   // }, [selected]);
 
-  console.log(selected);
 
   const configDialogRef = useRef();
   function openConfigDialog() {
@@ -35,7 +34,7 @@ const Index = () => {
       </div>
       <NoticeSelector />
       <div className="selector-height"></div>
-      <NoticeListBySiteId siteId={selected} />
+      <NoticeListBySiteId siteId={selected} category />
       <ConfigDialog ref={configDialogRef} />
     </div>
   );

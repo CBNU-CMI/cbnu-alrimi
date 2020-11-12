@@ -5,7 +5,6 @@
 // }, 3000);
 
 window.back = () => {
-  const ref = window.dialog[window.dialog.length - 1]
-  console.log(ref)
-  ref.current.closeDialog()
-}
+  const ref = window.dialog[window.dialog.length - 1];
+  ref.current.closeDialog();
+};

@@ -3,12 +3,12 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint import/no-cycle: [2, { maxDepth: 1 }] */
 
-import { NoticeListBySiteId } from '../Notice'
-import DialogLayout from '../../layout/Dialog'
+import { NoticeListBySiteId } from '../Notice';
+import DialogLayout from '../../layout/Dialog';
 
 const Header = ({ site }) => {
-  return <>{site.text}</>
-}
+  return <>{site.text}</>;
+};
 
 const NoticeListDialog = ({ siteId }) => {
   // console.log(props)
@@ -16,7 +16,11 @@ const NoticeListDialog = ({ siteId }) => {
     <div className="notice-list-dialog">
       <NoticeListBySiteId siteId={siteId} />
     </div>
-  )
-}
+  );
+};
 
-export default DialogLayout({ Page: NoticeListDialog, Header })
+export default DialogLayout({
+  Page: NoticeListDialog,
+  Header,
+  HeaderClass: 'header back',
+});
