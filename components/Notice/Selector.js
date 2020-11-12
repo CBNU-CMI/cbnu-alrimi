@@ -32,7 +32,6 @@ const Selector = () => {
   useEffect(() => {
     window.addEventListener('scroll', scroll);
     getSiteListCategory().then((result) => {
-      console.log(result);
       setData(result.data);
     });
   }, []);

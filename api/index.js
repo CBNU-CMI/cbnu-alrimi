@@ -24,7 +24,11 @@ const getNotice = (params) => {
   });
 };
 
-const getNoticeSite = ({ siteId, offset }) => {
+const getNoticeListBySite = ({ siteId, offset }) => {
+  return axios.get(`/notice/site/${siteId}?offset=${offset}`, getConfig());
+};
+
+const getNoticeListByCategory = ({ siteId, offset }) => {
   return axios.get(`/notice/category/${siteId}?offset=${offset}`, getConfig());
 };
 
@@ -43,7 +47,8 @@ const getSiteListCategory = () => {
 export {
   getNoticeSiteList,
   getNotice,
-  getNoticeSite,
+  getNoticeListBySite,
+  getNoticeListByCategory,
   getRestaurant,
   getSchedule,
   getSiteListCategory,

@@ -4,13 +4,13 @@
 import '../../styles/Notice/notice.scss';
 import { useState, useEffect } from 'react';
 import NoticeList from './NoticeList';
-import { getNoticeSite } from '../../api';
+import { getNoticeListBySite, getNoticeListByCategory } from '../../api';
 
-const NoticeListById = ({ siteId }) => {
-  // const [dialog, setDialog] = useState()
+const NoticeListById = ({ siteId, category = false }) => {
   const [notices, setNotices] = useState([]);
   const [noticeOffset, setNoticeOffset] = useState(1);
   let [hitBottom, sethitBottom] = useState(false);
+
 
   const infiniteScroll = (event) => {
     const target = event.target;
@@ -32,7 +32,7 @@ const NoticeListById = ({ siteId }) => {
 
   useEffect(() => {
     var target = window.document;
-    if (document.querySelectorAll('.dialog').length) {
+    if (!category) {
       target = document.querySelectorAll('.dialog')[
         document.querySelectorAll('.dialog').length - 1
       ];
@@ -58,14 +58,23 @@ const NoticeListById = ({ siteId }) => {
   }, [siteId]);
 
   useEffect(() => {
-    getNoticeSite({ siteId, offset: noticeOffset }).then((res) => {
-      // noticeOffset++
-      hitBottom = false;
-      sethitBottom(hitBottom);
+    if (category) {
+      getNoticeListByCategory({ siteId, offset: noticeOffset }).then((res) => {
+        hitBottom = false;
+        sethitBottom(hitBottom);
 
-      setNoticeOffset(noticeOffset + 1);
-      setNotices(notices.concat(res.data));
-    });
+        setNoticeOffset(noticeOffset + 1);
+        setNotices(notices.concat(res.data));
+      });
+    } else {
+      getNoticeListBySite({ siteId, offset: noticeOffset }).then((res) => {
+        hitBottom = false;
+        sethitBottom(hitBottom);
+
+        setNoticeOffset(noticeOffset + 1);
+        setNotices(notices.concat(res.data));
+      });
+    }
   }, [hitBottom]);
 
   return <NoticeList notices={notices} />;

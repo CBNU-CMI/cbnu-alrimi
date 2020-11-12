@@ -3,42 +3,42 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint import/no-cycle: [2, { maxDepth: 1 }] */
 
-import { useState, useRef } from 'react'
-import { BsBell, BsBellFill } from 'react-icons/bs'
-import list from './list'
-import DialogLayout from '../../layout/Dialog'
-import NoticeListDialog from './NoticeListDialog'
+import { useState, useRef } from 'react';
+import { BsBell, BsBellFill } from 'react-icons/bs';
+import list from './list';
+import DialogLayout from '../../layout/Dialog';
+import NoticeListDialog from './NoticeListDialog';
 
 const ConfigDialog = () => {
-  const [trace, setTrace] = useState([list])
-  const [options, setOptions] = useState(trace[trace.length - 1].children)
-  const [selectedSite, setSelectedSite] = useState({ id: undefined })
-  const noticeListDialogRef = useRef()
+  const [trace, setTrace] = useState([list]);
+  const [options, setOptions] = useState(trace[trace.length - 1].children);
+  const [selectedSite, setSelectedSite] = useState({ id: undefined });
+  const noticeListDialogRef = useRef();
 
   function allow(option) {
-    option.allow = true
-    setOptions(Object.assign([], options))
+    option.allow = true;
+    setOptions(Object.assign([], options));
   }
 
   function disallow(option) {
-    option.allow = false
-    setOptions(Object.assign([], options))
+    option.allow = false;
+    setOptions(Object.assign([], options));
   }
 
   function select(option) {
     if (option.bell) {
-      setSelectedSite(option)
-      noticeListDialogRef.current.openDialog()
-      return
+      setSelectedSite(option);
+      noticeListDialogRef.current.openDialog();
+      return;
     }
-    setOptions(option.children)
-    setTrace(trace.concat(option))
+    setOptions(option.children);
+    setTrace(trace.concat(option));
   }
 
   function moveTrace(index) {
-    const updateTrace = trace.filter((option, i) => i <= index)
-    setTrace(updateTrace)
-    setOptions(updateTrace[updateTrace.length - 1].children)
+    const updateTrace = trace.filter((option, i) => i <= index);
+    setTrace(updateTrace);
+    setOptions(updateTrace[updateTrace.length - 1].children);
   }
 
   return (
@@ -80,7 +80,7 @@ const ConfigDialog = () => {
         site={selectedSite}
       />
     </>
-  )
-}
+  );
+};
 
-export default DialogLayout({ Page: ConfigDialog })
+export default DialogLayout({ Page: ConfigDialog });
