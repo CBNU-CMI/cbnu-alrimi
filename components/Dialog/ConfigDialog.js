@@ -3,17 +3,27 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint import/no-cycle: [2, { maxDepth: 1 }] */
 
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { BsBell, BsBellFill } from 'react-icons/bs';
-import list from './list';
+import parser from './list';
 import DialogLayout from '../../layout/Dialog';
 import NoticeListDialog from './NoticeListDialog';
+import { getAllowSiteList } from '../../api';
 
 const ConfigDialog = () => {
-  const [trace, setTrace] = useState([list]);
-  const [options, setOptions] = useState(trace[trace.length - 1].children);
+  const [trace, setTrace] = useState([]);
+  const [options, setOptions] = useState([]);
   const [selectedSite, setSelectedSite] = useState({ id: undefined });
   const noticeListDialogRef = useRef();
+
+  useEffect(() => {
+    getAllowSiteList().then((result) => {
+      const parsedData = parser(result.data);
+      console.log(parsedData);
+      setTrace([parsedData]);
+      setOptions(parsedData.children);
+    });
+  }, []);
 
   function allow(option) {
     option.allow = true;
