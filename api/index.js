@@ -44,6 +44,10 @@ const getSiteListCategory = () => {
   return axios.get(`/notice/site/list/category`, getConfig());
 };
 
+const getAllowSiteList = () => {
+  return axios.get(`/allow/site/list`, getConfig());
+};
+
 export {
   getNoticeSiteList,
   getNotice,
@@ -52,4 +56,5 @@ export {
   getRestaurant,
   getSchedule,
   getSiteListCategory,
+  getAllowSiteList,
 };
