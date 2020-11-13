@@ -48,6 +48,14 @@ const getAllowSiteList = () => {
   return axios.get(`/allow/site/list`, getConfig());
 };
 
+const setAllowSite = (site_id) => {
+  return axios.post(`/allow/site/${site_id}`,{}, getConfig());
+};
+
+const unsetAllowSite = (site_id) => {
+  return axios.delete(`/allow/site/${site_id}`, getConfig());
+};
+
 export {
   getNoticeSiteList,
   getNotice,
@@ -57,4 +65,6 @@ export {
   getSchedule,
   getSiteListCategory,
   getAllowSiteList,
+  setAllowSite,
+  unsetAllowSite,
 };

@@ -8,7 +8,7 @@ import { BsBell, BsBellFill } from 'react-icons/bs';
 import parser from './list';
 import DialogLayout from '../../layout/Dialog';
 import NoticeListDialog from './NoticeListDialog';
-import { getAllowSiteList } from '../../api';
+import { getAllowSiteList, setAllowSite, unsetAllowSite } from '../../api';
 
 const ConfigDialog = () => {
   const [trace, setTrace] = useState([]);
@@ -19,7 +19,6 @@ const ConfigDialog = () => {
   useEffect(() => {
     getAllowSiteList().then((result) => {
       const parsedData = parser(result.data);
-      console.log(parsedData);
       setTrace([parsedData]);
       setOptions(parsedData.children);
     });
@@ -27,11 +26,13 @@ const ConfigDialog = () => {
 
   function allow(option) {
     option.allow = true;
+    setAllowSite(option.id);
     setOptions(Object.assign([], options));
   }
 
   function disallow(option) {
     option.allow = false;
+    unsetAllowSite(option.id);
     setOptions(Object.assign([], options));
   }
 
@@ -71,7 +72,7 @@ const ConfigDialog = () => {
               {option.bell ? (
                 <div className="bell">
                   {option.allow ? (
-                    <BsBellFill onClick={() => disallow(option)} />
+                    <BsBellFill className="fill" onClick={() => disallow(option)} />
                   ) : (
                     <BsBell onClick={() => allow(option)} />
                   )}

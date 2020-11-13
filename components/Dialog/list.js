@@ -47,7 +47,6 @@ function parser(data) {
       cur = find(cur, element.category3);
       cur.id = element.id;
       cur.bell = true;
-      console.log(element);
       cur.allow = element.allow;
     }
   });
