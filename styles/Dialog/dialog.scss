@@ -91,6 +91,9 @@
 
       .bell {
         margin-right: 6px;
+        &>.fill {
+          color: rgb(253, 192, 23);
+        }
       }
     }
 
