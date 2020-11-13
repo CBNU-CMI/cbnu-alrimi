@@ -17,11 +17,6 @@ const Index = () => {
     return state.noticeSelect;
   });
 
-  // useEffect(() => {
-  //   setNotices([]);
-  //   setNoticeOffset(1);
-  // }, [selected]);
-
 
   const configDialogRef = useRef();
   function openConfigDialog() {
@@ -29,9 +24,6 @@ const Index = () => {
   }
   return (
     <div className="notice-page">
-      <div className="config">
-        <BsGearFill onClick={openConfigDialog} />
-      </div>
       <NoticeSelector />
       <div className="selector-height"></div>
       <NoticeListBySiteId siteId={selected} category />

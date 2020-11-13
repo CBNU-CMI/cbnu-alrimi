@@ -1,121 +1,120 @@
 .dialog {
-    position: fixed;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  background: white;
+  overflow-y: auto;
+  .content {
+    margin-top: 10px;
+  }
+
+  .header {
+    height: 56px;
+    padding-left: 20px;
+    position: -webkit-sticky;
+    position: sticky;
     top: 0px;
-    left: 0px;
-    width: 100%;
-    height: 100%;
-    z-index: 2;
+    // width: 100%;
     background: white;
-    overflow-y: auto;
-    .content{
-        margin-top:10px;
+    display: flex;
+    align-items: center;
+    // z-index: 3;
+    &.back {
+      box-shadow: 1px 0 4px 1px rgba(0, 0, 0, 0.1);
     }
-    
-    .header {
-        height: 56px;
-        padding-left:20px;
-        position: -webkit-sticky;
-        position: sticky;
-        top: 0px;
-        background:white;
-        display: flex;
-        align-items: center;
-        &.back{
-            box-shadow: 1px 0 4px 1px rgba(0,0,0,.1);
-        }
-        .title{
-            font-size: 1rem;
-        }
-        .close {
-            cursor: pointer;
-            font-size: 1.5rem;
-
-            margin-right: 0.5rem;
-        }
-        .menu{
-            display:flex;
-            align-items: center;
-            font-size: 1.4rem;
-            position: absolute;
-            right:0px;
-            // top:20px;
-            svg{
-                margin-right: 5px;
-            }
-        }
-
+    .title {
+      font-size: 1rem;
     }
+    .close {
+      cursor: pointer;
+      font-size: 1.5rem;
 
-}
-
-.hide {
+      margin-right: 0.5rem;
+    }
+    .menu {
+      display: flex;
+      align-items: center;
+      font-size: 1.4rem;
+      position: absolute;
+      right: 0px;
+      // top:20px;
+      svg {
+        margin-right: 5px;
+      }
+    }
+  }
+  &.hide {
     display: none;
+  }
 }
 
 .notice-config {
-    padding: 0px 20px;
-    font-size: 0.9rem;
+  padding: 0px 20px;
+  font-size: 0.9rem;
 
-    .trace-list {
-        margin-bottom: 10px;
-        margin-left: 15px;
+  .trace-list {
+    margin-bottom: 10px;
+    margin-left: 15px;
 
-        .trace {
-            display: inline;
-            cursor: pointer;
-        }
-
-        .trace::after {
-            font-weight: bold;
-            content: '>';
-            margin: 0 6px;
-            color: rgb(94, 94, 94);
-        }
-
-        .trace:last-child::after {
-            content: '';
-        }
+    .trace {
+      display: inline;
+      cursor: pointer;
     }
 
-    .select-box {
-        border: 1px solid #d4d4d4;
-        border-radius: 20px;
-        padding: 15px 20px;
-
-        .option {
-            display: flex;
-            margin-bottom: 15px;
-
-            div {
-                cursor: pointer;
-            }
-
-            .bell {
-                margin-right: 6px;
-            }
-        }
-
-        .option:last-child {
-            margin-bottom: 0px;
-        }
+    .trace::after {
+      font-weight: bold;
+      content: '>';
+      margin: 0 6px;
+      color: rgb(94, 94, 94);
     }
+
+    .trace:last-child::after {
+      content: '';
+    }
+  }
+
+  .select-box {
+    border: 1px solid #d4d4d4;
+    border-radius: 20px;
+    padding: 15px 20px;
+
+    .option {
+      display: flex;
+      margin-bottom: 15px;
+
+      div {
+        cursor: pointer;
+      }
+
+      .bell {
+        margin-right: 6px;
+      }
+    }
+
+    .option:last-child {
+      margin-bottom: 0px;
+    }
+  }
 }
 
 .alert-enter {
-    -webkit-transform: perspective(2500px) translate3d(500px, 0px, 0px);
+  -webkit-transform: perspective(2500px) translate3d(500px, 0px, 0px);
 }
 
 .alert-enter-active {
-    // transform: translateX(0);
-    -webkit-transform: perspective(2500px) translate3d(0px, 0px, 0px);
-    transition: transform 200ms;
+  // transform: translateX(0);
+  -webkit-transform: perspective(2500px) translate3d(0px, 0px, 0px);
+  transition: transform 200ms;
 }
 
 .alert-exit {
-    -webkit-transform: perspective(2500px) translate3d(0px, 0px, 0px);
+  -webkit-transform: perspective(2500px) translate3d(0px, 0px, 0px);
 }
 
 .alert-exit-active {
-    -webkit-transform: perspective(2500px) translate3d(500px, 0px, 0px);
-    transition: transform 200ms;
+  -webkit-transform: perspective(2500px) translate3d(500px, 0px, 0px);
+  transition: transform 200ms;
 }

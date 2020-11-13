@@ -1,14 +1,14 @@
 /* eslint import/no-cycle: [2, { maxDepth: 1 }] */
-import { useRef, useState } from 'react'
-import NoticeCard from './NoticeCard'
-import { NoticeDetailDialog } from '../Dialog'
+import { useRef, useState } from 'react';
+import NoticeCard from './NoticeCard';
+import { NoticeDetailDialog } from '../Dialog';
 
 const NoticeList = ({ notices }) => {
-  const [selectedNotice, setSelectedNotice] = useState({})
-  const noticeDetailDialogRef = useRef()
+  const [selectedNotice, setSelectedNotice] = useState({});
+  const noticeDetailDialogRef = useRef();
   function openNoticeDetailDialog(notice) {
-    setSelectedNotice(notice)
-    noticeDetailDialogRef.current.openDialog()
+    setSelectedNotice(notice);
+    noticeDetailDialogRef.current.openDialog();
   }
 
   // const notices = [
@@ -45,8 +45,9 @@ const NoticeList = ({ notices }) => {
         noticeId={selectedNotice.id}
         notice={selectedNotice}
       />
+      <div className="loading">불러오는중...</div>
     </>
-  )
-}
+  );
+};
 
-export default NoticeList
+export default NoticeList;
