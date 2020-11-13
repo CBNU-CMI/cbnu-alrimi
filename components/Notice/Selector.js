@@ -4,13 +4,14 @@ import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectTypeAction } from '../../reducers/noticeSelect';
 import { ConfigDialog } from '../Dialog';
-import { AiOutlinePlus } from 'react-icons/ai';
 import { getSiteListCategory } from '../../api';
+import FloatingButton from './FloatingButton';
 
 const Selector = () => {
   const dispatch = useDispatch();
   const selected = useSelector((state) => state.noticeSelect);
   const [scrolling, setScrolling] = useState(false);
+  var bfrScroll = 0;
   const [data, setData] = useState([]);
 
   const onClickSelect = useCallback((select) => {
@@ -21,38 +22,41 @@ const Selector = () => {
   function openConfigDialog() {
     configDialogRef.current.openDialog();
   }
-  function scroll() {
-    if (window.scrollY == 0) {
-      setScrolling(false);
-      return;
-    }
+
+  const scroll = () => {
+    bfrScroll = window.scrollY;
     setScrolling(true);
-  }
+  };
 
   useEffect(() => {
     window.addEventListener('scroll', scroll);
     getSiteListCategory().then((result) => {
       setData(result.data);
     });
+    setInterval(() => {
+      if (bfrScroll == window.scrollY) {
+        setScrolling(false);
+      }
+    }, 2500);
   }, []);
 
   return (
     <>
-      <div className={'notice-selector ' + (scrolling ? 'border' : '')}>
+      {/* <div className={'notice-selector ' + (scrolling ? 'hide' : '')}> */}
+      <div className={'notice-selector '}>
         {data.map((d) => (
           <div
-            className={selected == d.id ? 'selected' : ''}
+            className={selected == d.id ? 'cateogry selected' : 'cateogry'}
             key={d.id}
             onClick={() => onClickSelect(d.id)}
           >
             {d.name}
           </div>
         ))}
-        <div className="config" onClick={openConfigDialog}>
-          <AiOutlinePlus />
-        </div>
+        <div className="free"></div>
       </div>
       <ConfigDialog ref={configDialogRef} />
+      <FloatingButton hide={scrolling} onClick={openConfigDialog} />
     </>
   );
 };
