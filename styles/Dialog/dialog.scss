@@ -17,11 +17,9 @@
     position: -webkit-sticky;
     position: sticky;
     top: 0px;
-    // width: 100%;
     background: white;
     display: flex;
     align-items: center;
-    // z-index: 3;
     &.back {
       box-shadow: 1px 0 4px 1px rgba(0, 0, 0, 0.1);
     }
@@ -40,7 +38,9 @@
       font-size: 1.4rem;
       position: absolute;
       right: 0px;
-      // top:20px;
+      .srcap {
+        color: yellow;
+      }
       svg {
         margin-right: 5px;
       }
@@ -91,7 +91,7 @@
 
       .bell {
         margin-right: 6px;
-        &>.fill {
+        & > .fill {
           color: rgb(253, 192, 23);
         }
       }
