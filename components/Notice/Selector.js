@@ -2,6 +2,7 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { AiFillStar } from 'react-icons/ai';
 import { selectTypeAction } from '../../reducers/noticeSelect';
 import { ConfigDialog } from '../Dialog';
 import { getSiteListCategory } from '../../api';
@@ -13,6 +14,7 @@ const Selector = () => {
   const [scrolling, setScrolling] = useState(false);
   var bfrScroll = 0;
   const [data, setData] = useState([]);
+  const ID_SCRAP = 12345;
 
   const onClickSelect = useCallback((select) => {
     dispatch(selectTypeAction(select));
@@ -44,6 +46,14 @@ const Selector = () => {
     <>
       {/* <div className={'notice-selector ' + (scrolling ? 'hide' : '')}> */}
       <div className={'notice-selector '}>
+        <div
+          className={
+            selected == ID_SCRAP ? 'cateogry scrap selected' : 'cateogry scrap'
+          }
+          onClick={() => onClickSelect(ID_SCRAP)}
+        >
+          <AiFillStar />
+        </div>
         {data.map((d) => (
           <div
             className={selected == d.id ? 'cateogry selected' : 'cateogry'}

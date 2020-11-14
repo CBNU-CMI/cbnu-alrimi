@@ -49,16 +49,21 @@ const getAllowSiteList = () => {
 };
 
 const setAllowSite = (site_id) => {
-  return axios.post(`/allow/site/${site_id}`,{}, getConfig());
+  return axios.post(`/allow/site/${site_id}`, {}, getConfig());
 };
 
 const unsetAllowSite = (site_id) => {
   return axios.delete(`/allow/site/${site_id}`, getConfig());
 };
 
+const getNoticeListByScrap = (list) => {
+  return axios.get(`/notice/list/scrap`, { ...getConfig(), params: { list } });
+};
+
 export {
   getNoticeSiteList,
   getNotice,
+  getNoticeListByScrap,
   getNoticeListBySite,
   getNoticeListByCategory,
   getRestaurant,

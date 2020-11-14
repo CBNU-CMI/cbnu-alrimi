@@ -4,13 +4,19 @@
 import '../../styles/Notice/notice.scss';
 import { useState, useEffect } from 'react';
 import NoticeList from './NoticeList';
-import { getNoticeListBySite, getNoticeListByCategory } from '../../api';
+import {
+  getNoticeListBySite,
+  getNoticeListByCategory,
+  getNoticeListByScrap,
+} from '../../api';
+import { getScrap, isEmptyScrap } from '../../common/scrap';
 
 const NoticeListById = ({ siteId, category = false }) => {
   const [notices, setNotices] = useState([]);
   const [noticeOffset, setNoticeOffset] = useState(1);
   let [hitBottom, sethitBottom] = useState(false);
-
+  const [isEnd, setEnd] = useState(false);
+  const ID_SCRAP = 12345;
 
   const infiniteScroll = (event) => {
     const target = event.target;
@@ -53,17 +59,32 @@ const NoticeListById = ({ siteId, category = false }) => {
 
   useEffect(() => {
     setNotices([]);
+    setEnd(false);
     setNoticeOffset(1);
     sethitBottom(true);
   }, [siteId]);
 
   useEffect(() => {
     if (category) {
+      if (siteId == ID_SCRAP) {
+        hitBottom = false;
+        sethitBottom(hitBottom);
+        if (isEmptyScrap()) {
+          setEnd(true);
+        } else {
+          getNoticeListByScrap(getScrap()).then((res) => {
+            setNotices(notices.concat(res.data));
+            setEnd(true);
+          });
+        }
+        return;
+      }
       getNoticeListByCategory({ siteId, offset: noticeOffset }).then((res) => {
         hitBottom = false;
         sethitBottom(hitBottom);
 
         setNoticeOffset(noticeOffset + 1);
+        if (res.data.length == 0) setEnd(true);
         setNotices(notices.concat(res.data));
       });
     } else {
@@ -72,12 +93,18 @@ const NoticeListById = ({ siteId, category = false }) => {
         sethitBottom(hitBottom);
 
         setNoticeOffset(noticeOffset + 1);
+        if (res.data.length == 0) setEnd(true);
         setNotices(notices.concat(res.data));
       });
     }
   }, [hitBottom]);
 
-  return <NoticeList notices={notices} />;
+  return (
+    <>
+      <NoticeList notices={notices} />
+      {isEnd ? '' : <div className="loading">불러오는중...</div>}
+    </>
+  );
 };
 
 export default NoticeListById;
