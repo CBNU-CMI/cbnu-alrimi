@@ -9,8 +9,11 @@ import parser from './list';
 import DialogLayout from '../../layout/Dialog';
 import NoticeListDialog from './NoticeListDialog';
 import { getAllowSiteList, setAllowSite, unsetAllowSite } from '../../api';
+import Modal from '..//More/Modal';
 
 const ConfigDialog = () => {
+  const [modal, setModal] = useState({ isModalOpen: false });
+  const [modalData, setModalData] = useState([{ data: [] }]);
   const [trace, setTrace] = useState([]);
   const [options, setOptions] = useState([]);
   const [selectedSite, setSelectedSite] = useState({ id: undefined });
@@ -28,12 +31,30 @@ const ConfigDialog = () => {
     option.allow = true;
     setAllowSite(option.id);
     setOptions(Object.assign([], options));
+    setModalData([
+      {
+        data: [
+          `${trace[trace.length - 1].text} > ${option.text}`,
+          '알림이 설정되었습니다.',
+        ],
+      },
+    ]);
+    setModal({ isModalOpen: true });
   }
 
   function disallow(option) {
     option.allow = false;
     unsetAllowSite(option.id);
     setOptions(Object.assign([], options));
+    setModalData([
+      {
+        data: [
+          `${trace[trace.length - 1].text} > ${option.text}`,
+          '알림이 해제되었습니다.',
+        ],
+      },
+    ]);
+    setModal({ isModalOpen: true });
   }
 
   function select(option) {
@@ -50,6 +71,10 @@ const ConfigDialog = () => {
     const updateTrace = trace.filter((option, i) => i <= index);
     setTrace(updateTrace);
     setOptions(updateTrace[updateTrace.length - 1].children);
+  }
+
+  function closeModal() {
+    setModal({ isModalOpen: false });
   }
 
   return (
@@ -72,7 +97,10 @@ const ConfigDialog = () => {
               {option.bell ? (
                 <div className="bell">
                   {option.allow ? (
-                    <BsBellFill className="fill" onClick={() => disallow(option)} />
+                    <BsBellFill
+                      className="fill"
+                      onClick={() => disallow(option)}
+                    />
                   ) : (
                     <BsBell onClick={() => allow(option)} />
                   )}
@@ -90,6 +118,7 @@ const ConfigDialog = () => {
         siteId={selectedSite.id}
         site={selectedSite}
       />
+      <Modal datas={modalData} isOpen={modal.isModalOpen} close={closeModal} />
     </>
   );
 };
