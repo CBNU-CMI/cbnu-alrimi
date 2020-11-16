@@ -16,7 +16,12 @@ const More = () => {
     <MoreList name={value} idx={idx} key={idx} />
   ));
 
-  return <div className="more">{list}</div>;
+  return (
+    <div className="more-page">
+      <div className="title">더보기</div>
+      <div className="more">{list}</div>
+    </div>
+  );
 };
 
 export default mainLayout(More);
