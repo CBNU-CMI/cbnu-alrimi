@@ -1,8 +1,8 @@
 /* eslint import/no-cycle: [2, { maxDepth: 1 }] */
-import { useRef, useState } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import NoticeCard from './NoticeCard';
 import { NoticeDetailDialog } from '../Dialog';
-
+import { getNotice } from '../../api';
 const NoticeList = ({ notices }) => {
   const [selectedNotice, setSelectedNotice] = useState({});
   const noticeDetailDialogRef = useRef();
@@ -10,6 +10,14 @@ const NoticeList = ({ notices }) => {
     setSelectedNotice(notice);
     noticeDetailDialogRef.current.openDialog();
   }
+
+  useEffect(() => {
+    window.openNotice = async function (id, category) {
+      getNotice({ noticeId: id }).then((res) => {
+        openNoticeDetailDialog(res.data);
+      });
+    };
+  }, []);
 
   return (
     <>

@@ -48,9 +48,9 @@ const NoticeListById = ({ siteId, category = false }) => {
     }
 
     infiniteScroll({ target });
-
     setNotices([]);
     setNoticeOffset(1);
+
     return () => {
       if (target == window.document) return;
       target.removeEventListener('scroll', infiniteScroll);
