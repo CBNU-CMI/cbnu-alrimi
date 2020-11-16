@@ -16,7 +16,7 @@ const mainLayout = (Page) => {
         <title>충림이</title>
         <meta charSet="utf-8" />
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-        <script src="/flutter.js" />
+        <script src="/app.js" />
       </Head>
       <Page stlye={style} />
       <FakeFooter />
