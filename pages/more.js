@@ -1,6 +1,7 @@
 import mainLayout from '../layout/main';
 import MoreList from '../components/More/MoreList';
 import '../styles/More/more.scss';
+import Layout from '../Layout';
 
 const More = () => {
   const listData = [
@@ -17,10 +18,12 @@ const More = () => {
   ));
 
   return (
-    <div className="more-page">
-      <div className="title">더보기</div>
-      <div className="more">{list}</div>
-    </div>
+    <Layout>
+      <div className="more-page">
+        <div className="title">더보기</div>
+        <div className="more">{list}</div>
+      </div>
+    </Layout>
   );
 };
 
