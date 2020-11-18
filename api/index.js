@@ -1,14 +1,15 @@
 import axios from 'axios';
+import { getToken } from '../common/token';
 
 // console.log(window.location);
 
-const token = `fyhhpHxmc4I:APA91bEXCyw_TUvx3M-yKxyaKc72Xv0a7c2MVFbrDtTZfkqpZKIajyTi1Us0TAFHliQtq02Fy3Y_xTyBnmC8k1ea3qCLBQVh1aNFYs-ei2ZxMwvS4oFtnzPugaA2N9DQx2R63INnU9Pv`;
+// const token = `fyhhpHxmc4I:APA91bEXCyw_TUvx3M-yKxyaKc72Xv0a7c2MVFbrDtTZfkqpZKIajyTi1Us0TAFHliQtq02Fy3Y_xTyBnmC8k1ea3qCLBQVh1aNFYs-ei2ZxMwvS4oFtnzPugaA2N9DQx2R63INnU9Pv`;
 
 const getConfig = () => {
   return {
     baseURL: 'http://' + location.hostname + ':3000',
     headers: {
-      token,
+      token: getToken(),
     },
   };
 };
@@ -48,6 +49,10 @@ const getAllowSiteList = () => {
   return axios.get(`/allow/site/list`, getConfig());
 };
 
+const getAllowOnSiteList = () => {
+  return axios.get(`/allow/on/site/list`, getConfig());
+};
+
 const setAllowSite = (site_id) => {
   return axios.post(`/allow/site/${site_id}`, {}, getConfig());
 };
@@ -70,6 +75,7 @@ export {
   getSchedule,
   getSiteListCategory,
   getAllowSiteList,
+  getAllowOnSiteList,
   setAllowSite,
   unsetAllowSite,
 };
