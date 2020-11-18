@@ -9,6 +9,8 @@ const NoticeDetail = ({ noticeId }) => {
     getNotice({ noticeId }).then((res) => {
       setNotice(res.data);
     });
+    window.ga('set', 'page', '/article/' + noticeId);
+    window.ga('send', 'pageview');
   }, []);
   return (
     <div className="notice-detail">
