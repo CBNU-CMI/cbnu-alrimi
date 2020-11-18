@@ -1,7 +1,7 @@
 import { useState, Fragment, useRef } from 'react';
 import { AiOutlineRight } from 'react-icons/ai';
 import Modal from './Modal';
-import { VersionNoteDialog, OpenSourceDialog } from '../Dialog';
+import { MyAlrimDialog, VersionNoteDialog, OpenSourceDialog } from '../Dialog';
 
 const MoreList = (props) => {
   const [modal, setModal] = useState({ isModalOpen: false });
@@ -18,6 +18,7 @@ const MoreList = (props) => {
     'opensource',
     'version',
   ];
+  const myAlrimDialogRef = useRef();
   const versionNoteDialogRef = useRef();
   const openSourceDialogRef = useRef();
 
@@ -27,6 +28,10 @@ const MoreList = (props) => {
   ];
 
   function open() {
+    if (props.idx == 0) {
+      myAlrimDialogRef.current.openDialog();
+      return;
+    }
     if (contactType) {
       window.open('https://open.kakao.com/o/gmUkYJ4b');
       return;
@@ -56,6 +61,7 @@ const MoreList = (props) => {
   return (
     <Fragment>
       <span>
+        <MyAlrimDialog ref={myAlrimDialogRef} />
         <VersionNoteDialog ref={versionNoteDialogRef} />
         <OpenSourceDialog ref={openSourceDialogRef} />
       </span>
