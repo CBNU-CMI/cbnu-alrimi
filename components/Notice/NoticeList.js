@@ -6,6 +6,7 @@ import { getNotice } from '../../api';
 const NoticeList = ({ notices }) => {
   const [selectedNotice, setSelectedNotice] = useState({});
   const noticeDetailDialogRef = useRef();
+
   function openNoticeDetailDialog(notice) {
     setSelectedNotice(notice);
     noticeDetailDialogRef.current.openDialog();
