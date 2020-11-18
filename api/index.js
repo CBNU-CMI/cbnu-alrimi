@@ -65,6 +65,18 @@ const getNoticeListByScrap = (list) => {
   return axios.get(`/notice/list/scrap`, { ...getConfig(), params: { list } });
 };
 
+const getPuase = () => {
+  return axios.get(`/allow/pause`, getConfig());
+};
+
+const setPause = () => {
+  return axios.post(`/allow/pause`, {}, getConfig());
+};
+
+const unsetPause = () => {
+  return axios.delete(`/allow/pause`, getConfig());
+};
+
 export {
   getNoticeSiteList,
   getNotice,
@@ -78,4 +90,7 @@ export {
   getAllowOnSiteList,
   setAllowSite,
   unsetAllowSite,
+  getPuase,
+  setPause,
+  unsetPause,
 };
