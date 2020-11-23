@@ -5,6 +5,7 @@ import mainLayout from '../layout/main';
 import { inToken, setToken } from '../common/token';
 import { NoticeSelector, NoticeListBySiteId } from '../components/Notice';
 import Layout from '../Layout';
+import { addUser } from '../api';
 
 const Index = () => {
   const router = useRouter();
@@ -18,6 +19,7 @@ const Index = () => {
       if (router.query.token) {
         const token = router.query.token;
         setToken(token);
+        addUser(router.query.type);
         location.reload();
       }
     }
