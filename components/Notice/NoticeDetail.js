@@ -12,6 +12,10 @@ const NoticeDetail = ({ noticeId }) => {
     window.ga('set', 'page', '/article/' + noticeId);
     window.ga('send', 'pageview');
   }, []);
+
+  const openLink = () => {
+    window.open(notice.url);
+  };
   return (
     <div className="notice-detail">
       <div className="title">
@@ -24,7 +28,9 @@ const NoticeDetail = ({ noticeId }) => {
         className="contents"
         dangerouslySetInnerHTML={{ __html: notice.contents }}
       />
-      <div>자세한 내용 및 첨부파일은 본문확인</div>
+      <div className="info">
+        자세한 내용 및 첨부파일은 <a onClick={openLink}>본문</a>에서 확인
+      </div>
     </div>
   );
 };

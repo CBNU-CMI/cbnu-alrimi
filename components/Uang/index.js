@@ -1,6 +1,4 @@
 import UangEmpty from './Empty';
+import UangEat from './Eat';
 
-
-export {
-  UangEmpty,
-};
+export { UangEmpty, UangEat };
