@@ -11,6 +11,8 @@ import FloatingButton from './FloatingButton';
 const Selector = () => {
   const dispatch = useDispatch();
   const selected = useSelector((state) => state.noticeSelect);
+  const changeConfig = useSelector((state) => state.changeConfig);
+
   const [scrolling, setScrolling] = useState(false);
   var bfrScroll = 0;
   const [data, setData] = useState([]);
@@ -40,7 +42,7 @@ const Selector = () => {
         setScrolling(false);
       }
     }, 2500);
-  }, []);
+  }, [changeConfig]);
 
   return (
     <>

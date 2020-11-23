@@ -11,10 +11,12 @@
 
     .bell {
       position: absolute;
+      img {
+        height: 20px;
+      }
       right: 15px;
       top: 16px;
-      font-size: 1.4rem;
-      color: rgb(245, 227, 69);
+      cursor: pointer;
     }
   }
   .pause {
