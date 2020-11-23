@@ -91,8 +91,23 @@
     padding: 0px 20px;
     * {
       z-index: -1;
+      img {
+        width: 100% !important;
+        height: auto !important;
+      }
 
       // text-indent: 10pt !important;
+    }
+  }
+  .info {
+    margin-top: 5px;
+    padding-top: 5px;
+    font-size: 0.9rem;
+    text-align: center;
+    a {
+      color: rgb(51, 51, 255);
+      font-weight: bold;
+      font-size: 1rem;
     }
   }
 }

@@ -38,14 +38,14 @@
     .menu {
       display: flex;
       align-items: center;
-      font-size: 1.4rem;
+      font-size: 1.6rem;
       position: absolute;
       right: 0px;
-      .srcap {
-        color: yellow;
+      .scrap {
+        color: rgb(247, 223, 7);
       }
       svg {
-        margin-right: 5px;
+        margin-right: 7px;
       }
     }
   }

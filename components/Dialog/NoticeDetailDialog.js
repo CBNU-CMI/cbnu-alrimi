@@ -31,7 +31,6 @@ const Header = ({ notice }) => {
           />
         ) : (
           <AiOutlineStar
-            className="scrap"
             onClick={() => {
               insertScrap(notice.id);
               setUpdate(!update);
