@@ -1,0 +1,20 @@
+.empty {
+  width: 100%;
+  position: absolute;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 100px;
+
+  img {
+    height: 200px;
+  }
+  .info {
+    margin-top: 14px;
+    text-align: center;
+    color: gray;
+    font-size: 0.8rem;
+  }
+}

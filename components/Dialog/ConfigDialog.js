@@ -4,20 +4,23 @@
 /* eslint import/no-cycle: [2, { maxDepth: 1 }] */
 
 import { useState, useRef, useEffect } from 'react';
-import { BsBell, BsBellFill } from 'react-icons/bs';
+import { useDispatch, useSelector } from 'react-redux';
 import parser from './list';
 import DialogLayout from '../../layout/Dialog';
 import NoticeListDialog from './NoticeListDialog';
 import { getAllowSiteList, setAllowSite, unsetAllowSite } from '../../api';
 import Modal from '..//More/Modal';
+import { changeConfigAction } from '../../reducers/changeConfig';
 
 const ConfigDialog = () => {
+  const dispatch = useDispatch();
   const [modal, setModal] = useState({ isModalOpen: false });
   const [modalData, setModalData] = useState([{ data: [] }]);
   const [trace, setTrace] = useState([]);
   const [options, setOptions] = useState([]);
   const [selectedSite, setSelectedSite] = useState({ id: undefined });
   const noticeListDialogRef = useRef();
+  const changeConfig = useSelector((state) => state.changeConfig);
 
   useEffect(() => {
     getAllowSiteList().then((result) => {
@@ -74,6 +77,7 @@ const ConfigDialog = () => {
   }
 
   function closeModal() {
+    dispatch(changeConfigAction(!changeConfig));
     setModal({ isModalOpen: false });
   }
 
@@ -97,12 +101,17 @@ const ConfigDialog = () => {
               {option.bell ? (
                 <div className="bell">
                   {option.allow ? (
-                    <BsBellFill
+                    <img
                       className="fill"
+                      src="/img/on.png"
                       onClick={() => disallow(option)}
-                    />
+                    ></img>
                   ) : (
-                    <BsBell onClick={() => allow(option)} />
+                    <img
+                      className="fill"
+                      src="/img/off.png"
+                      onClick={() => allow(option)}
+                    ></img>
                   )}
                 </div>
               ) : (

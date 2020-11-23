@@ -45,7 +45,11 @@ function Alrim({ site }) {
           toggle();
         }}
       >
-        {allow ? <BsBellFill /> : <BsBell />}
+        {allow ? (
+          <img className="fill" src="/img/on.png"></img>
+        ) : (
+          <img className="fill" src="/img/off.png"></img>
+        )}
       </div>
     </div>
   );
