@@ -7,6 +7,7 @@ import { selectTypeAction } from '../../reducers/noticeSelect';
 import { ConfigDialog } from '../Dialog';
 import { getSiteListCategory } from '../../api';
 import FloatingButton from './FloatingButton';
+import { getSelector, setSelector } from '../../common/selector';
 
 const Selector = () => {
   const dispatch = useDispatch();
@@ -19,6 +20,7 @@ const Selector = () => {
   const ID_SCRAP = 12345;
 
   const onClickSelect = useCallback((select) => {
+    setSelector('notice', select);
     dispatch(selectTypeAction(select));
   }, []);
 
@@ -42,6 +44,7 @@ const Selector = () => {
         setScrolling(false);
       }
     }, 2500);
+    dispatch(selectTypeAction(getSelector('notice')));
   }, [changeConfig]);
 
   return (
