@@ -7,7 +7,7 @@ import { getToken } from '../common/token';
 
 const getConfig = () => {
   return {
-    baseURL: 'http://' + location.hostname + ':3000',
+    baseURL: 'http://' + location.hostname + ':9060',
     headers: {
       token: getToken(),
     },
@@ -77,6 +77,10 @@ const unsetPause = () => {
   return axios.delete(`/allow/pause`, getConfig());
 };
 
+const addUser = (type) => {
+  return axios.post(`/user`, { type }, getConfig());
+};
+
 export {
   getNoticeSiteList,
   getNotice,
@@ -93,4 +97,5 @@ export {
   getPuase,
   setPause,
   unsetPause,
+  addUser,
 };
