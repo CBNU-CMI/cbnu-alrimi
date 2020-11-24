@@ -3,8 +3,7 @@
 </a>
 
 <p align="center">
-  <a href="https://github.com/CBNU-CMI/cbnu-alrimi/blob/dev/LICENSE">
-    <img src="https://img.shields.io/github/license/CBNU-CMI/cbnu-alrimicolor=ff7037" />
+  <img src="https://img.shields.io/github/license/payw-org/eodiro-server" />
   </a>
 </p>
 
