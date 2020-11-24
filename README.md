@@ -3,8 +3,8 @@
 </a>
 
 <p align="center">
-  <a href="https://github.com/CBNU-CMI/React-Front-end/blob/dev/LICENSE">
-    <img src="https://img.shields.io/github/license/CBNU-CMI/React-Front-end?color=ff7037" />
+  <a href="https://github.com/CBNU-CMI/cbnu-alrimi/blob/dev/LICENSE">
+    <img src="https://img.shields.io/github/license/CBNU-CMI/cbnu-alrimicolor=ff7037" />
   </a>
 </p>
 
@@ -14,7 +14,7 @@
 
 ### Using Dev API Locally
 
-You must clone and run [`Alrimi Server`](https://github.com/CBNU-CMI/React-Back-end) on your local machine in dev mode.
+You must clone and run [`Alrimi Server`](https://github.com/CBNU-CMI/cbnu-alrimi-server) on your local machine in dev mode.
 
 ```zsh
 npm run dev
@@ -22,7 +22,7 @@ npm run dev
 
 ### Using Production API
 
-Also you can develop only the client application without cloning server repository [`Alrimi Server`](https://github.com/CBNU-CMI/React-Back-end).
+Also you can develop only the client application without cloning server repository [`Alrimi Server`](https://github.com/CBNU-CMI/cbnu-alrimi-server).
 
 ```zsh
 npm run start
@@ -58,7 +58,7 @@ Set body background to pure W/B(`#ffffff`, `#000000` on dark mode). Usually use 
 
 Transform a `camelCase` string to `kebab-case`.
 
-## [License](https://github.com/CBNU-CMI/React-Front-end/blob/master/LICENSE)
+## [License](https://github.com/CBNU-CMI/cbnu-alrimi/blob/master/LICENSE)
 
 MIT License
 
