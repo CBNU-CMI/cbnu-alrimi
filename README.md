@@ -30,21 +30,27 @@ npm run start
 ### 🔌 Components
 
 **`Layout`**
+
 The frame of the page with the menu at the bottom.
 
 **`Dialog`**
+
 The frame of components overlaid on the screen.
 
 **`Modal`**
+
 A framework for checking and canceling specific information.
 
 **`Calendar`**
+
 Components for checking the calendar by year and month.
 
 **`Selector`**
+
 Components for selecting dormitories, dates, announcements, etc.
 
 **`Infinity Scroll`**
+
 Components that can automatically load the following data when scrolling reaches the end of the page.
 
 ### String Utils
