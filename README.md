@@ -30,26 +30,22 @@ npm run start
 ### 🔌 Components
 
 **`Layout`**
-
+The frame of the page with the menu at the bottom.
 
 **`Dialog`**
+The frame of components overlaid on the screen.
 
 **`Modal`**
-
-**Props**
-
-- `children`: A wrapper element.
-- `strategy`: This method is being called when the bottom of the container reaches the end of a viewport. It returns `true` when there are more content to be loaded, `false` on the other hand.
+A framework for checking and canceling specific information.
 
 **`Calendar`**
+Components for checking the calendar by year and month.
 
-By including this component inside render function, you can hide the `GlobalFooter` which will be appended to every page globally.
+**`Selector`**
+Components for selecting dormitories, dates, announcements, etc.
 
-**`WhiteBody`**
-
-Set body background to pure W/B(`#ffffff`, `#000000` on dark mode). Usually use this when the content is not displayed inside blocks.
-
-**`EodiroLink`**
+**`Infinity Scroll`**
+Components that can automatically load the following data when scrolling reaches the end of the page.
 
 ### String Utils
 
