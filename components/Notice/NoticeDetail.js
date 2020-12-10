@@ -1,10 +1,13 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
 import dateFormat from '../../common/dateFormat';
 import '../../styles/Notice/notice.scss';
 import { getNotice } from '../../api';
+import ThemeContext from '../../context/theme';
 
 const NoticeDetail = ({ noticeId }) => {
   const [notice, setNotice] = useState({});
+  const { theme } = useContext(ThemeContext);
+
   useEffect(() => {
     getNotice({ noticeId }).then((res) => {
       setNotice(res.data);
@@ -17,7 +20,11 @@ const NoticeDetail = ({ noticeId }) => {
     window.open(notice.url);
   };
   return (
-    <div className="notice-detail">
+    <div
+      className={
+        theme === 'light' ? 'notice-detail light' : 'notice-detail dark'
+      }
+    >
       <div className="title">
         <div>{notice.title}</div>
       </div>

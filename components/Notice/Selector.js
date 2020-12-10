@@ -1,6 +1,12 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
-import React, { useCallback, useEffect, useRef, useState } from 'react';
+import React, {
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+  useContext,
+} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { AiFillStar } from 'react-icons/ai';
 import { BsMoon } from 'react-icons/bs';
@@ -10,11 +16,12 @@ import { ConfigDialog } from '../Dialog';
 import { getSiteListCategory } from '../../api';
 import FloatingButton from './FloatingButton';
 import { getSelector, setSelector } from '../../common/selector';
+import ThemeContext from '../../context/theme';
 
 const Selector = () => {
   const dispatch = useDispatch();
   const selected = useSelector((state) => state.noticeSelect);
-  const [mode, setMode] = useState('light');
+  const { theme, toggleTheme } = useContext(ThemeContext);
   const changeConfig = useSelector((state) => state.changeConfig);
 
   const [scrolling, setScrolling] = useState(false);
@@ -26,10 +33,6 @@ const Selector = () => {
     setSelector('notice', select);
     dispatch(selectTypeAction(select));
   }, []);
-
-  const onClickMode = (mode) => {
-    mode === 'light' ? setMode('dark') : setMode('light');
-  };
 
   const configDialogRef = useRef();
   function openConfigDialog() {
@@ -54,14 +57,16 @@ const Selector = () => {
     dispatch(selectTypeAction(getSelector('notice')));
   }, [changeConfig]);
 
+
   return (
     <>
-      <div className={'notice-selector '}>
-        <div
-          className={mode === 'light' ? 'mode light' : 'mode dark'}
-          onClick={() => onClickMode(mode)}
-        >
-          {mode === 'light' ? (
+      <div
+        className={
+          theme === 'light' ? 'notice-selector light' : 'notice-selector dark'
+        }
+      >
+        <div className={'category theme'} onClick={() => toggleTheme()}>
+          {theme === 'light' ? (
             <HiSun className="HiSun" />
           ) : (
             <BsMoon className="BsMoon" />
@@ -69,7 +74,7 @@ const Selector = () => {
         </div>
         <div
           className={
-            selected == ID_SCRAP ? 'cateogry scrap selected' : 'cateogry scrap'
+            selected == ID_SCRAP ? 'category scrap selected' : 'category scrap'
           }
           onClick={() => onClickSelect(ID_SCRAP)}
         >
@@ -77,7 +82,7 @@ const Selector = () => {
         </div>
         {data.map((d) => (
           <div
-            className={selected == d.id ? 'cateogry selected' : 'cateogry'}
+            className={selected == d.id ? 'category selected' : 'category'}
             key={d.id}
             onClick={() => onClickSelect(d.id)}
           >

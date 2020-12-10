@@ -1,6 +1,5 @@
-import { useEffect } from 'react';
+import { useEffect, useContext, useState } from 'react';
 import { useRouter } from 'next/router';
-import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import mainLayout from '../layout/main';
 import { inToken, setToken } from '../common/token';
@@ -8,11 +7,13 @@ import { NoticeSelector, NoticeListBySiteId } from '../components/Notice';
 import Layout from '../Layout';
 import { addUser, getSiteListCategory } from '../api';
 import { UangEmpty } from '../components/Uang';
+import ThemeContext from '../context/theme';
 
 const Index = () => {
   const router = useRouter();
   const [isEmpty, setIsEmpty] = useState(false);
   const [update, setUpdate] = useState(0);
+  const { theme } = useContext(ThemeContext);
 
   const changeConfig = useSelector((state) => {
     return state.changeConfig;
@@ -45,7 +46,9 @@ const Index = () => {
 
   return (
     <Layout>
-      <div className="notice-page">
+      <div
+        className={theme === 'light' ? 'notice-page light' : 'notice-page dark'}
+      >
         <NoticeSelector />
         <div className="selector-height"></div>
         {isEmpty ? (
