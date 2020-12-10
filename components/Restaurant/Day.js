@@ -1,25 +1,31 @@
-import '../../styles/Restaurant/date.scss'
-import { AiOutlineLeft, AiOutlineRight } from 'react-icons/ai'
-
-import React, { useCallback } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { datePlusAction, dateMinusAction } from '../../reducers/restaurantDate'
-import { dayList } from '../constants'
+import '../../styles/Restaurant/date.scss';
+import { AiOutlineLeft, AiOutlineRight } from 'react-icons/ai';
+import React, { useCallback, useContext } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { datePlusAction, dateMinusAction } from '../../reducers/restaurantDate';
+import { dayList } from '../constants';
+import ThemeContext from '../../context/theme';
 
 const Day = () => {
-  const dispatch = useDispatch()
-  const date = useSelector((state) => state.restaurantDate)
+  const { theme } = useContext(ThemeContext);
+
+  const dispatch = useDispatch();
+  const date = useSelector((state) => state.restaurantDate);
 
   const onClickPlus = useCallback(() => {
-    dispatch(datePlusAction())
-  }, [])
+    dispatch(datePlusAction());
+  }, []);
 
   const onClickMinus = useCallback(() => {
-    dispatch(dateMinusAction())
-  }, [])
+    dispatch(dateMinusAction());
+  }, []);
 
   return (
-    <div className="restaurant-date">
+    <div
+      className={
+        theme === 'light' ? 'restaurant-date light' : 'restaurant-date dark'
+      }
+    >
       <AiOutlineLeft className="AiOutline" onClick={onClickMinus} />
       <div className="date">
         {date.getFullYear()}년 {date.getMonth() + 1}월 {date.getDate()}일 (
@@ -27,7 +33,7 @@ const Day = () => {
       </div>
       <AiOutlineRight className="AiOutline" onClick={onClickPlus} />
     </div>
-  )
-}
+  );
+};
 
-export default Day
+export default Day;

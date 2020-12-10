@@ -1,4 +1,31 @@
+@import '../constants.scss';
+
 .calendar {
+  &.light {
+    color: $font-color-black;
+  }
+
+  &.dark {
+    background-color: $background-color-dark;
+    .week {
+      .date {
+        color: $alt-black;
+      }
+      .sunday-date {
+        color: $pink;
+      }
+      .satday-date {
+        color: $blue;
+      }
+      .not-date {
+        color: gray;
+      }
+      .today {
+        background-color: $gray;
+      }
+    }
+  }
+
   .week {
     display: flex;
     .date,

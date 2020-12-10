@@ -23,7 +23,7 @@
   &.dark {
     background-color: $background-color-dark;
     color: $alt-black;
-
+    border-top: 0.1rem solid $darkgray;
     .active {
       color: $pink;
     }

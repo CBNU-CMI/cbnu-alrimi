@@ -1,11 +1,15 @@
-import '../../styles/Schedule/label.scss'
-import { dayList } from '../constants'
+import { useContext } from 'react';
+import '../../styles/Schedule/label.scss';
+import { dayList } from '../constants';
+import ThemeContext from '../../context/theme';
 
 const Label = ({ startDate, endDate, content }) => {
-  const sDate = new Date(startDate)
-  const eDate = new Date(endDate)
+  const sDate = new Date(startDate);
+  const eDate = new Date(endDate);
+  const { theme } = useContext(ThemeContext);
+
   return (
-    <div className="label">
+    <div className={theme === 'light' ? 'label light' : 'label dark'}>
       <div className="content">{content}</div>
       {!endDate ? (
         <div className="term">
@@ -18,7 +22,7 @@ const Label = ({ startDate, endDate, content }) => {
         </div>
       )}
     </div>
-  )
-}
+  );
+};
 
-export default Label
+export default Label;
