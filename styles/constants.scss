@@ -1,12 +1,13 @@
 $background-color-dark: #292a32;
 $background-color-light: #fff;
 $head-font-color-black: rgb(167, 167, 167);
-$head-dark-shadow: 0 1px 5px rgba(0, 0, 0, 0.3),
-  0 0 0 1px rgba(207, 207, 207, 0.302);
-$head-light-shadow: 1px 0 4px 1px rgba(0, 0, 0, 0.1);
+$dark-shadow: 0 1px 5px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(207, 207, 207, 0.302);
+$light-shadow: 1px 0 4px 1px rgba(0, 0, 0, 0.1);
 $font-color-black: #444444;
 $alt-black: #f8f8f8;
 $gray: #b7b7b7;
 $black: #000;
 $scheme-trans: background-color 800ms ease, box-shadow 800ms ease,
   border-color 800ms ease;
+$pink: #f72269;
+$orange: #f9826c;

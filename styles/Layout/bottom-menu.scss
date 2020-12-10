@@ -1,3 +1,5 @@
+@import '../constants.scss';
+
 .bottom-menu {
   position: fixed;
   display: flex;
@@ -8,17 +10,31 @@
   background: #fcfcfc;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 10px 20px 0 rgba(0, 0, 0, 0.19);
   z-index: 1;
+  transition: transform 200ms ease, $scheme-trans;
+
+  &.light {
+    color: $font-color-black;
+
+    .active {
+      color: rgb(138, 0, 0);
+    }
+  }
+
+  &.dark {
+    background-color: $background-color-dark;
+    color: $alt-black;
+
+    .active {
+      color: $pink;
+    }
+  }
 
   .menu {
     width: 25%;
     height: 100%;
     cursor: pointer;
 
-    .active {
-      color: rgb(138, 0, 0);
-    }
-
-    &>div {
+    & > div {
       display: flex;
       flex-direction: column;
       align-items: center;

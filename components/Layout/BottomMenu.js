@@ -1,15 +1,20 @@
-import Link from 'next/link'
-import '../../styles/Layout/bottom-menu.scss'
-import { useRouter } from 'next/router'
-import { AiOutlineNotification, AiOutlineCalendar } from 'react-icons/ai'
-import { BiRestaurant } from 'react-icons/bi'
-import { FiMoreHorizontal } from 'react-icons/fi'
+import Link from 'next/link';
+import { useContext } from 'react';
+import '../../styles/Layout/bottom-menu.scss';
+import { useRouter } from 'next/router';
+import { AiOutlineNotification, AiOutlineCalendar } from 'react-icons/ai';
+import { BiRestaurant } from 'react-icons/bi';
+import { FiMoreHorizontal } from 'react-icons/fi';
+import ThemeContext from '../../context/theme';
 
 const BottomMenu = () => {
-  const router = useRouter()
+  const router = useRouter();
+  const { theme } = useContext(ThemeContext);
 
   return (
-    <div className="bottom-menu">
+    <div
+      className={theme === 'light' ? 'bottom-menu light' : 'bottom-menu dark'}
+    >
       <div className="menu">
         <Link href="/">
           <div className={router.pathname === '/' ? 'active' : null}>
@@ -52,7 +57,7 @@ const BottomMenu = () => {
         </Link>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default BottomMenu
+export default BottomMenu;

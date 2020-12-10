@@ -1,7 +1,14 @@
-import '../../styles/Layout/fakefooter.scss'
+import { useContext } from 'react';
+import '../../styles/Layout/fakefooter.scss';
+import ThemeContext from '../../context/theme';
 
 const FakeFooter = () => {
-  return <div className="fakefooter" />
-}
+  const { theme } = useContext(ThemeContext);
+  return (
+    <div
+      className={theme === 'light' ? 'fakefooter light' : 'fakefooter dark'}
+    />
+  );
+};
 
-export default FakeFooter
+export default FakeFooter;
