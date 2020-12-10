@@ -3,6 +3,8 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { AiFillStar } from 'react-icons/ai';
+import { BsMoon } from 'react-icons/bs';
+import { HiSun } from 'react-icons/hi';
 import { selectTypeAction } from '../../reducers/noticeSelect';
 import { ConfigDialog } from '../Dialog';
 import { getSiteListCategory } from '../../api';
@@ -12,6 +14,7 @@ import { getSelector, setSelector } from '../../common/selector';
 const Selector = () => {
   const dispatch = useDispatch();
   const selected = useSelector((state) => state.noticeSelect);
+  const [mode, setMode] = useState('light');
   const changeConfig = useSelector((state) => state.changeConfig);
 
   const [scrolling, setScrolling] = useState(false);
@@ -23,6 +26,10 @@ const Selector = () => {
     setSelector('notice', select);
     dispatch(selectTypeAction(select));
   }, []);
+
+  const onClickMode = (mode) => {
+    mode === 'light' ? setMode('dark') : setMode('light');
+  };
 
   const configDialogRef = useRef();
   function openConfigDialog() {
@@ -49,15 +56,24 @@ const Selector = () => {
 
   return (
     <>
-      {/* <div className={'notice-selector ' + (scrolling ? 'hide' : '')}> */}
       <div className={'notice-selector '}>
+        <div
+          className={mode === 'light' ? 'mode light' : 'mode dark'}
+          onClick={() => onClickMode(mode)}
+        >
+          {mode === 'light' ? (
+            <HiSun className="HiSun" />
+          ) : (
+            <BsMoon className="BsMoon" />
+          )}
+        </div>
         <div
           className={
             selected == ID_SCRAP ? 'cateogry scrap selected' : 'cateogry scrap'
           }
           onClick={() => onClickSelect(ID_SCRAP)}
         >
-          <AiFillStar />
+          <AiFillStar className="AiFillStar" />
         </div>
         {data.map((d) => (
           <div
