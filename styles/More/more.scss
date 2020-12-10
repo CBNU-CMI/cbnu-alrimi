@@ -1,4 +1,23 @@
+@import '../constants.scss';
+
 .more-page {
+  min-height: 100vh;
+
+  &.light {
+    color: $font-color-black;
+  }
+
+  &.dark {
+    background-color: $background-color-dark;
+    color: $alt-black;
+    .more {
+      & > div {
+        padding: 1rem;
+        border-bottom: 1px solid $darkgray;
+      }
+    }
+  }
+
   .more {
     & > div {
       padding: 1rem;

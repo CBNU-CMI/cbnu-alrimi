@@ -1,9 +1,13 @@
+import { useContext } from 'react';
 import mainLayout from '../layout/main';
 import MoreList from '../components/More/MoreList';
 import '../styles/More/more.scss';
 import Layout from '../Layout';
+import ThemeContext from '../context/theme';
 
 const More = () => {
+  const { theme } = useContext(ThemeContext);
+
   const listData = [
     '나의 알림',
     '만든이',
@@ -19,7 +23,7 @@ const More = () => {
 
   return (
     <Layout>
-      <div className="more-page">
+      <div className={theme === 'light' ? 'more-page light' : 'more-page dark'}>
         <div className="title">더보기</div>
         <div className="more">{list}</div>
       </div>
