@@ -1,6 +1,20 @@
+@import '../constants.scss';
 .restaurant-menu {
   display: flex;
   flex-direction: column;
+
+  &.light {
+    color: $font-color-black;
+  }
+
+  &.dark {
+    .restaurant-text {
+      background-color: $background-color-dark;
+      color: $alt-black;
+      box-shadow: $dark-shadow;
+    }
+  }
+
   .restaurant-time {
     display: flex;
     flex-direction: column;

@@ -1,11 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { useSelector } from 'react-redux';
 import { getRestaurant } from '../../api';
 import restaurantList from '../constants';
 import '../../styles/Restaurant/menu.scss';
 import NonMenu from './Non-Menu';
+import ThemeContext from '../../context/theme';
 
 const Menu = () => {
+  const { theme } = useContext(ThemeContext);
+
   function dateParsing(date) {
     return `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`;
   }
@@ -26,7 +29,11 @@ const Menu = () => {
   const timeList = ['아침', '점심', '저녁'];
 
   return (
-    <div className="restaurant-menu">
+    <div
+      className={
+        theme === 'light' ? 'restaurant-menu light' : 'restaurant-menu dark'
+      }
+    >
       {menuData.length > 0 ? (
         menuData.map((menu) => {
           const foodArray = menu.food_name.split('\n');
