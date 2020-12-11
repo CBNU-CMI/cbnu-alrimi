@@ -47,7 +47,7 @@ const Selector = () => {
   useEffect(() => {
     window.addEventListener('scroll', scroll);
     getSiteListCategory().then((result) => {
-      setData(result.data);
+      setData([{ name: '전체보기', id: '1' }].concat(result.data));
     });
     setInterval(() => {
       if (bfrScroll == window.scrollY) {
@@ -56,7 +56,6 @@ const Selector = () => {
     }, 2500);
     dispatch(selectTypeAction(getSelector('notice')));
   }, [changeConfig]);
-
 
   return (
     <>
