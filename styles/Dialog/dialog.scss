@@ -128,8 +128,16 @@
 
       .bell {
         margin-right: 6px;
-        img {
-          height: 16px;
+
+        &.light {
+          color: $font-color-black;
+          .BsBellFill {
+            color: rgb(247, 223, 7);
+          }
+        }
+
+        &.dark {
+          color: $alt-black;
         }
       }
     }
