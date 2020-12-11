@@ -1,0 +1,12 @@
+@import '../constants.scss';
+
+.schedule {
+  min-height: 100vh;
+  &.light {
+    color: $font-color-black;
+  }
+
+  &.dark {
+    background-color: $background-color-dark;
+  }
+}

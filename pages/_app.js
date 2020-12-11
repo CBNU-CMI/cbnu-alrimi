@@ -4,12 +4,13 @@ import { createStore, compose, applyMiddleware } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import reducer from '../reducers';
 import '../styles/index';
+import { ThemeProvider } from '../context/theme';
 
 const Test = ({ Component }) => {
   return (
-    <>
+    <ThemeProvider>
       <Component />
-    </>
+    </ThemeProvider>
   );
 };
 

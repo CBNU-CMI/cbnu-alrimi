@@ -1,9 +1,26 @@
+@import '../constants.scss';
 .restaurant-select {
   display: flex;
   overflow-x: auto;
   overflow-y: hidden;
   width: calc(100vw - 20px);
   margin-top: 5px;
+
+  &.light {
+    color: $font-color-black;
+  }
+
+  &.dark {
+    .select-box,
+    .real-select-box {
+      background-color: $background-color-dark;
+      color: $alt-black;
+      box-shadow: $dark-shadow;
+    }
+    .real-select-box {
+      color: $pink;
+    }
+  }
 
   & {
     -ms-overflow-style: none; /* IE and Edge */
@@ -29,7 +46,9 @@
       right: 10px;
       top: 10px;
       bottom: 10px;
+      left: 0.4rem;
     }
+
     align-items: center;
     justify-content: center;
     border-radius: 0.7rem;

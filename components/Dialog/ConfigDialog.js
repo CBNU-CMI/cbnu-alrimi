@@ -3,14 +3,16 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint import/no-cycle: [2, { maxDepth: 1 }] */
 
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect, useContext } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import parser from './list';
 import DialogLayout from '../../layout/Dialog';
 import NoticeListDialog from './NoticeListDialog';
 import { getAllowSiteList, setAllowSite, unsetAllowSite } from '../../api';
-import Modal from '..//More/Modal';
+import Modal from '../More/Modal';
 import { changeConfigAction } from '../../reducers/changeConfig';
+import { BsBell, BsBellFill } from 'react-icons/bs';
+import ThemeContext from '../../context/theme';
 
 const ConfigDialog = () => {
   const dispatch = useDispatch();
@@ -21,6 +23,7 @@ const ConfigDialog = () => {
   const [selectedSite, setSelectedSite] = useState({ id: undefined });
   const noticeListDialogRef = useRef();
   const changeConfig = useSelector((state) => state.changeConfig);
+  const { theme } = useContext(ThemeContext);
 
   useEffect(() => {
     getAllowSiteList().then((result) => {
@@ -99,19 +102,14 @@ const ConfigDialog = () => {
           {options.map((option) => (
             <div key={option.text} className="option">
               {option.bell ? (
-                <div className="bell">
+                <div className={theme === 'light' ? 'bell light' : 'bell dark'}>
                   {option.allow ? (
-                    <img
-                      className="fill"
-                      src="/img/on.png"
+                    <BsBellFill
+                      className="BsBellFill"
                       onClick={() => disallow(option)}
-                    ></img>
+                    />
                   ) : (
-                    <img
-                      className="fill"
-                      src="/img/off.png"
-                      onClick={() => allow(option)}
-                    ></img>
+                    <BsBell className="BsBell" onClick={() => allow(option)} />
                   )}
                 </div>
               ) : (

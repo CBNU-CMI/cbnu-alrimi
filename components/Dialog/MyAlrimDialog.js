@@ -13,7 +13,6 @@ import {
   setPause,
   unsetPause,
 } from '../../api';
-import { BsBell, BsBellFill } from 'react-icons/bs';
 
 function Alrim({ site }) {
   const [allow, setAllow] = useState(true);

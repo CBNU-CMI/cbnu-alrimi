@@ -1,8 +1,20 @@
+@import '../constants.scss';
+
 .restaurant {
+  &.light {
+    color: $font-color-black;
+  }
+
+  &.dark {
+    background-color: $background-color-dark;
+    color: $alt-black;
+  }
+
+  min-height: 100vh;
   overflow-x: hidden;
   overflow-y: hidden;
-  margin-left: 1rem;
-  margin-right: 1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
   display: flex;
   flex-direction: column;
 }

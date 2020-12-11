@@ -1,42 +1,48 @@
 /* eslint-disable react/jsx-props-no-spreading */
-import { useState, forwardRef, useImperativeHandle } from 'react'
-import { CgClose } from 'react-icons/cg'
-import { BiArrowBack } from 'react-icons/bi'
-import '../styles/Dialog/dialog.scss'
-import { CSSTransition } from 'react-transition-group'
+import { useState, forwardRef, useImperativeHandle, useContext } from 'react';
+import { CgClose } from 'react-icons/cg';
+import { BiArrowBack } from 'react-icons/bi';
+import '../styles/Dialog/dialog.scss';
+import { CSSTransition } from 'react-transition-group';
+import ThemeContext from '../context/theme';
 
 const DialogLayout = ({ Page, Header, HeaderClass = 'header' }) => {
   return forwardRef((props, ref) => {
-    const [open, setOpen] = useState(false)
+    const [open, setOpen] = useState(false);
+    const { theme } = useContext(ThemeContext);
 
     useImperativeHandle(ref, () => ({
       openDialog() {
-        if (!window.dialog) window.dialog = []
-        window.dialog.push(ref)
-        document.querySelector('html').style.overflow = 'hidden'
-        setOpen(true)
+        if (!window.dialog) window.dialog = [];
+        window.dialog.push(ref);
+        document.querySelector('html').style.overflow = 'hidden';
+        setOpen(true);
       },
       closeDialog() {
-        window.dialog.pop()
+        window.dialog.pop();
         if (window.dialog.length === 0) {
-          document.querySelector('html').style.overflow = 'auto'
+          document.querySelector('html').style.overflow = 'auto';
         }
-        setOpen(false)
+        setOpen(false);
       },
-    }))
+    }));
 
     function closeDialog() {
-      window.dialog.pop()
+      window.dialog.pop();
       if (window.dialog.length === 0) {
-        document.querySelector('html').style.overflow = 'auto'
+        document.querySelector('html').style.overflow = 'auto';
       }
-      setOpen(false)
+      setOpen(false);
     }
 
     return (
       <CSSTransition in={open} timeout={200} classNames="alert" unmountOnExit>
-        <div className="dialog">
-          <div className={HeaderClass}>
+        <div className={theme === 'light' ? 'dialog light' : 'dialog dark'}>
+          <div
+            className={
+              theme === 'light' ? `${HeaderClass} light` : `${HeaderClass} dark`
+            }
+          >
             {Header ? (
               <>
                 <BiArrowBack className="close" onClick={closeDialog} />
@@ -46,13 +52,13 @@ const DialogLayout = ({ Page, Header, HeaderClass = 'header' }) => {
               <CgClose className="close" onClick={closeDialog} />
             )}
           </div>
-          <div className="content">
+          <div className={theme === 'light' ? 'content light' : 'content dark'}>
             <Page {...props} />
           </div>
         </div>
       </CSSTransition>
-    )
-  })
-}
+    );
+  });
+};
 
-export default DialogLayout
+export default DialogLayout;

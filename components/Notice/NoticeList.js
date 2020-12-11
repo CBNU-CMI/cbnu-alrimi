@@ -15,8 +15,6 @@ const NoticeList = ({ notices }) => {
     noticeDetailDialogRef.current.openDialog();
   }
 
-  // console.log();
-
   useEffect(() => {
     window.openNotice = async function (id, category) {
       getNotice({ noticeId: id }).then((res) => {

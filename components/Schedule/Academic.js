@@ -1,10 +1,12 @@
 import '../../styles/Schedule/academic.scss';
 import { getSchedule } from '../../api';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import Label from './Label';
+import ThemeContext from '../../context/theme';
 
 const Academic = ({ date }) => {
   const [timeLineData, setTimeLineData] = useState([]);
+  const { theme } = useContext(ThemeContext);
 
   useEffect(() => {
     getSchedule({ year: date.getFullYear(), month: date.getMonth() + 1 }).then(
@@ -15,7 +17,7 @@ const Academic = ({ date }) => {
   }, [date]);
 
   return (
-    <div className="academic">
+    <div className={theme === 'light' ? 'academic light' : 'academic dark'}>
       <div className="title">학사일정</div>
       {timeLineData.map((data) => {
         return (

@@ -1,7 +1,18 @@
+@import '../constants.scss';
+
 .fakefooter {
   display: flex;
   height: 70px;
   width: 100%;
   bottom: 0px;
   z-index: 1;
+  transition: transform 200ms ease, $scheme-trans;
+
+  &.light {
+    color: $font-color-black;
+  }
+
+  &.dark {
+    background-color: $background-color-dark;
+  }
 }

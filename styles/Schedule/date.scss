@@ -1,8 +1,25 @@
+@import '../constants.scss';
+
 .schedule-date {
+  &.light {
+    color: $font-color-black;
+  }
+
+  &.dark {
+    background-color: $background-color-dark;
+    .date,
+    .day {
+      color: $alt-black;
+    }
+    .line {
+      border-top: 1px solid $darkgray;
+    }
+  }
+
   .date {
     font-weight: bold;
     font-size: 1.3rem;
-    margin-top: 10px;
+    padding-top: 10px;
     margin-bottom: 1.5rem;
     display: flex;
     justify-content: center;
@@ -26,7 +43,7 @@
   }
 
   .line {
-    border: 1px solid lightgray;
-    margin-bottom: 1rem;
+    border-top: 1px solid lightgray;
+    padding-bottom: 1rem;
   }
 }

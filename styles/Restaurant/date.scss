@@ -1,7 +1,23 @@
+@import '../constants.scss';
+
 .restaurant-date {
   margin-top: 10px;
   display: flex;
   justify-content: space-between;
+
+  &.light {
+    color: $font-color-black;
+  }
+
+  &.dark {
+    .date,
+    .AiOutline {
+      background-color: $background-color-dark;
+      color: $alt-black;
+      box-shadow: $dark-shadow;
+    }
+  }
+
   .AiOutline {
     cursor: pointer;
     border-radius: 0.7rem;
@@ -15,6 +31,7 @@
       right: 15px;
     }
     height: 16px;
+    font-size: 0.9rem;
     border-radius: 0.7rem;
     padding: {
       top: 10px;
