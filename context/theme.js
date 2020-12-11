@@ -4,7 +4,12 @@ import { createContext, useState } from 'react';
 const ThemeContext = createContext();
 
 const ThemeProvider = ({ children }) => {
-  const [theme, setTheme] = useState('light');
+  let mode;
+  const time = new Date().getHours();
+  if (time >= 7 && time <= 18) mode = 'light';
+  else mode = 'dark';
+
+  const [theme, setTheme] = useState(mode);
   return (
     <ThemeContext.Provider
       value={{
