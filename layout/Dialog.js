@@ -37,7 +37,7 @@ const DialogLayout = ({ Page, Header, HeaderClass = 'header' }) => {
 
     return (
       <CSSTransition in={open} timeout={200} classNames="alert" unmountOnExit>
-        <div className="dialog">
+        <div className={theme === 'light' ? 'dialog light' : 'dialog dark'}>
           <div
             className={
               theme === 'light' ? `${HeaderClass} light` : `${HeaderClass} dark`
@@ -52,7 +52,7 @@ const DialogLayout = ({ Page, Header, HeaderClass = 'header' }) => {
               <CgClose className="close" onClick={closeDialog} />
             )}
           </div>
-          <div className="content">
+          <div className={theme === 'light' ? 'content light' : 'content dark'}>
             <Page {...props} />
           </div>
         </div>
