@@ -11,6 +11,7 @@
   animation-name: toggle;
   animation-duration: 1.3s;
   opacity: 0;
+  z-index: 1;
 
   &.light {
     background-color: $gray;
