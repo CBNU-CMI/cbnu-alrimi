@@ -11,7 +11,6 @@ const Header = ({ site }) => {
 };
 
 const NoticeListDialog = ({ siteId }) => {
-  // console.log(props)
   return (
     <div className="notice-list-dialog">
       <NoticeListBySiteId siteId={siteId} />

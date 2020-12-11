@@ -13,6 +13,7 @@ import {
   setPause,
   unsetPause,
 } from '../../api';
+import Toast from './Toast';
 
 function Alrim({ site }) {
   const [allow, setAllow] = useState(true);
@@ -55,6 +56,8 @@ function Alrim({ site }) {
 }
 
 const MyAlrimDialog = () => {
+  const [update, setUpdate] = useState(false);
+
   const [data, setData] = useState([]);
   const [isPause, setIsPause] = useState(false);
 
@@ -75,6 +78,17 @@ const MyAlrimDialog = () => {
 
   return (
     <div className="my-alrim">
+      {update ? (
+        isPause ? (
+          <div>
+            <Toast message="전체알림이 해제되었습니다." />
+          </div>
+        ) : (
+          <Toast message="전체알림이 허용되었습니다." />
+        )
+      ) : (
+        ''
+      )}
       {isPause ? <div className="board"></div> : ''}
       <div className="pause">
         <div className="text">알림 기능 중지</div>
@@ -84,6 +98,7 @@ const MyAlrimDialog = () => {
             checked={isPause}
             onClick={() => {
               togglePause();
+              setUpdate(true);
             }}
           />
           <span className="slider round"></span>

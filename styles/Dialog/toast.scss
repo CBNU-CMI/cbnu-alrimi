@@ -1,0 +1,43 @@
+@import '../constants.scss';
+
+.toast {
+  position: fixed;
+  border-radius: 0.7rem;
+  font-size: 0.8rem;
+  box-shadow: $dark-shadow;
+  padding: 0.5rem 0.8rem;
+  bottom: 3rem;
+  right: 9rem;
+  animation-name: toggle;
+  animation-duration: 1.3s;
+  opacity: 0;
+  z-index: 1;
+
+  &.light {
+    background-color: $gray;
+    color: $alt-black;
+  }
+
+  &.dark {
+    background-color: $darkgray;
+    color: $alt-black;
+  }
+
+  @keyframes toggle {
+    0% {
+      opacity: 0;
+    }
+
+    40% {
+      opacity: 1;
+    }
+
+    60% {
+      opacity: 1;
+    }
+
+    100% {
+      opacity: 0;
+    }
+  }
+}
