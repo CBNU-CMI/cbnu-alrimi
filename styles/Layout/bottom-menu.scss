@@ -1,6 +1,8 @@
 @import '../constants.scss';
 
 .bottom-menu {
+  overflow: hidden;
+
   position: fixed;
   display: flex;
   height: 60px;
