@@ -19,6 +19,7 @@ function removeScrap(notice_id) {
   const idx = scrap.indexOf(notice_id);
   if (idx > -1) scrap.splice(idx, 1);
   localStorage.setItem('saved', JSON.stringify(scrap));
+
 }
 function isEmptyScrap() {
   if (getScrap().length == 0) return true;

@@ -6,6 +6,7 @@ import NoticeListDialog from './NoticeListDialog';
 import VersionNoteDialog from './VersionNoteDialog';
 import OpenSourceDialog from './OpenSourceDialog';
 import MyAlrimDialog from './MyAlrimDialog';
+import Toast from './Toast';
 
 export {
   ConfigDialog,
@@ -14,4 +15,5 @@ export {
   VersionNoteDialog,
   OpenSourceDialog,
   MyAlrimDialog,
+  Toast,
 };

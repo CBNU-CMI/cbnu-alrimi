@@ -9,9 +9,10 @@ import { useState } from 'react';
 import { NoticeDetail } from '../Notice';
 import DialogLayout from '../../layout/Dialog';
 import { isScrap, insertScrap, removeScrap } from '../../common/scrap';
-
+import Toast from './Toast';
 const Header = ({ notice }) => {
   const [update, setUpdate] = useState(false);
+  const [tmp, setTmp] = useState(false);
 
   const openLink = () => {
     window.open(notice.url);
@@ -21,19 +22,36 @@ const Header = ({ notice }) => {
     <>
       {notice.category2} | {notice.category3}
       <div className="menu">
+        {console.log('업데이트' + update)}
+        {console.log('스크랩됐니?' + isScrap(notice.id))}
+
+        {update ? (
+          isScrap(notice.id) ? (
+            <div>
+              <Toast message="스크랩이 되었습니다." />
+            </div>
+          ) : (
+            <Toast message="스크랩이 해제되었습니다." />
+          )
+        ) : (
+          ''
+        )}
+
         {isScrap(notice.id) ? (
           <AiFillStar
             className="scrap"
             onClick={() => {
               removeScrap(notice.id);
-              setUpdate(!update);
+              setTmp(!tmp);
+              setUpdate(true);
             }}
           />
         ) : (
           <AiOutlineStar
             onClick={() => {
               insertScrap(notice.id);
-              setUpdate(!update);
+              setTmp(!tmp);
+              setUpdate(true);
             }}
           />
         )}
